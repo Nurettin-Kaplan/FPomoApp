@@ -1,0 +1,9 @@
+Red: #961a25
+
+Dark Blue: #232530
+
+Gray: #adb0b0
+
+Light Red: #944e54
+
+Font: Gothic UI

@@ -1,0 +1,17 @@
+C:\FPomoApp\bin\Debug\net7.0-windows\FPomoApp.exe
+C:\FPomoApp\bin\Debug\net7.0-windows\FPomoApp.deps.json
+C:\FPomoApp\bin\Debug\net7.0-windows\FPomoApp.runtimeconfig.json
+C:\FPomoApp\bin\Debug\net7.0-windows\FPomoApp.dll
+C:\FPomoApp\bin\Debug\net7.0-windows\FPomoApp.pdb
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.csproj.GenerateResource.cache
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.AssemblyInfoInputs.cache
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.AssemblyInfo.cs
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.csproj.CoreCompileInputs.cache
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.dll
+C:\FPomoApp\obj\Debug\net7.0-windows\refint\FPomoApp.dll
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.pdb
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.genruntimeconfig.cache
+C:\FPomoApp\obj\Debug\net7.0-windows\ref\FPomoApp.dll
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.App.resources
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.Properties.Resources.resources
