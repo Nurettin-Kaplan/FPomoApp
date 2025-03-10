@@ -43,26 +43,139 @@ namespace FPomoApp
             Application.Exit(); // Uygulamanýn kapanmasýný saðlar
         }
 
-        private void BtnTasks_Click(object sender, EventArgs e)
-        {
-            if (BtnTasks.Tag.ToString() == "taskno")
-            {
-                BtnTasks.BackgroundImage = Properties.Resources.task;
-                BtnTasks.Tag = "task";
-            }
-            else
-            {
-                BtnTasks.BackgroundImage = Properties.Resources.taskno;
-                BtnTasks.Tag = "taskno";
-            }
-            
-        }
+        Dictionary<Button, (Bitmap, Bitmap)> buttonPicture = new Dictionary<Button, (Bitmap, Bitmap)>();
 
         private void App_Load(object sender, EventArgs e)
         {
-            // task butonunun image kýsmýný deðiþtirmek için yapýlan
-            BtnTasks.BackgroundImage = Properties.Resources.taskno;
-            BtnTasks.Tag = "taskno"; // Hangi resmin kullanýldýðýný takip etmek için
+            // Örnek olarak butonlarý ekleyelim ve onlarýn resimlerini tanýmlayalým
+            buttonPicture.Add(BtnTasks, (Properties.Resources.task2, Properties.Resources.task1));
+            buttonPicture.Add(BtnWTask, (Properties.Resources.tasklist2, Properties.Resources.tasklist1));
+            buttonPicture.Add(BtnPomo, (Properties.Resources.timer1, Properties.Resources.timer2));
+            buttonPicture.Add(BtnStatics, (Properties.Resources.statistics1, Properties.Resources.statistics2));
+            buttonPicture.Add(BtnWallet, (Properties.Resources.wallet1, Properties.Resources.wallet2));
+            buttonPicture.Add(BtnSettings, (Properties.Resources.setting1, Properties.Resources.setting2));
+            buttonPicture.Add(BtnInfo, (Properties.Resources.info1, Properties.Resources.info2));
+
+            // Tüm butonlara Click event'ini baðla
+            foreach (Button btn in buttonPicture.Keys)
+            {
+                //btn.Click += Buton_Click;
+                btn.BackgroundImage = buttonPicture[btn].Item1; // Varsayýlan resim
+                btn.Tag = "first"; // Ýlk hali takip etmek için Tag ekledik
+            }
+        }
+
+        private void BtnTasks_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            // Önce tüm butonlarý varsayýlan resmine döndür
+            foreach (Button btn in buttonPicture.Keys)
+            {
+                btn.BackgroundImage = buttonPicture[btn].Item1; // Ýlk resme dön
+                btn.Tag = "first";
+            }
+
+            // Þimdi sadece týklanan butonun resmini deðiþtir
+            clickedButton.BackgroundImage = buttonPicture[clickedButton].Item2; // Ýkinci resme geç
+            clickedButton.Tag = "second";
+
+        }
+
+        private void BtnWTask_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            // Önce tüm butonlarý varsayýlan resmine döndür
+            foreach (Button btn in buttonPicture.Keys)
+            {
+                btn.BackgroundImage = buttonPicture[btn].Item1; // Ýlk resme dön
+                btn.Tag = "first";
+            }
+
+            // Þimdi sadece týklanan butonun resmini deðiþtir
+            clickedButton.BackgroundImage = buttonPicture[clickedButton].Item2; // Ýkinci resme geç
+            clickedButton.Tag = "second";
+        }
+
+        private void BtnPomo_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            // Önce tüm butonlarý varsayýlan resmine döndür
+            foreach (Button btn in buttonPicture.Keys)
+            {
+                btn.BackgroundImage = buttonPicture[btn].Item1; // Ýlk resme dön
+                btn.Tag = "first";
+            }
+
+            // Þimdi sadece týklanan butonun resmini deðiþtir
+            clickedButton.BackgroundImage = buttonPicture[clickedButton].Item2; // Ýkinci resme geç
+            clickedButton.Tag = "second";
+        }
+
+        private void BtnStatics_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            // Önce tüm butonlarý varsayýlan resmine döndür
+            foreach (Button btn in buttonPicture.Keys)
+            {
+                btn.BackgroundImage = buttonPicture[btn].Item1; // Ýlk resme dön
+                btn.Tag = "first";
+            }
+
+            // Þimdi sadece týklanan butonun resmini deðiþtir
+            clickedButton.BackgroundImage = buttonPicture[clickedButton].Item2; // Ýkinci resme geç
+            clickedButton.Tag = "second";
+        }
+
+        private void BtnWallet_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            // Önce tüm butonlarý varsayýlan resmine döndür
+            foreach (Button btn in buttonPicture.Keys)
+            {
+                btn.BackgroundImage = buttonPicture[btn].Item1; // Ýlk resme dön
+                btn.Tag = "first";
+            }
+
+            // Þimdi sadece týklanan butonun resmini deðiþtir
+            clickedButton.BackgroundImage = buttonPicture[clickedButton].Item2; // Ýkinci resme geç
+            clickedButton.Tag = "second";
+        }
+
+        private void BtnSettings_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            // Önce tüm butonlarý varsayýlan resmine döndür
+            foreach (Button btn in buttonPicture.Keys)
+            {
+                btn.BackgroundImage = buttonPicture[btn].Item1; // Ýlk resme dön
+                btn.Tag = "first";
+            }
+
+            // Þimdi sadece týklanan butonun resmini deðiþtir
+            clickedButton.BackgroundImage = buttonPicture[clickedButton].Item2; // Ýkinci resme geç
+            clickedButton.Tag = "second";
+        }
+
+        private void BtnInfo_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            // Önce tüm butonlarý varsayýlan resmine döndür
+            foreach (Button btn in buttonPicture.Keys)
+            {
+                btn.BackgroundImage = buttonPicture[btn].Item1; // Ýlk resme dön
+                btn.Tag = "first";
+            }
+
+            // Þimdi sadece týklanan butonun resmini deðiþtir
+            clickedButton.BackgroundImage = buttonPicture[clickedButton].Item2; // Ýkinci resme geç
+            clickedButton.Tag = "second";
         }
     }
 }

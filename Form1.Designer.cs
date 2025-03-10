@@ -33,7 +33,13 @@
             button1 = new Button();
             BtnClose = new Button();
             panel2 = new Panel();
+            BtnInfo = new Button();
+            BtnSettings = new Button();
+            BtnWallet = new Button();
+            BtnStatics = new Button();
+            BtnPomo = new Button();
             pictureBox1 = new PictureBox();
+            BtnWTask = new Button();
             BtnTasks = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -63,7 +69,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Adobe Gothic Std B", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = SystemColors.WindowFrame;
-            button1.Location = new Point(1321, 0);
+            button1.Location = new Point(1327, 0);
             button1.Name = "button1";
             button1.Size = new Size(46, 32);
             button1.TabIndex = 1;
@@ -78,9 +84,9 @@
             BtnClose.FlatAppearance.BorderSize = 0;
             BtnClose.FlatStyle = FlatStyle.Flat;
             BtnClose.ForeColor = SystemColors.WindowFrame;
-            BtnClose.Location = new Point(1367, 0);
+            BtnClose.Location = new Point(1373, 0);
             BtnClose.Name = "BtnClose";
-            BtnClose.Size = new Size(52, 32);
+            BtnClose.Size = new Size(46, 32);
             BtnClose.TabIndex = 0;
             BtnClose.Text = "X";
             BtnClose.UseVisualStyleBackColor = false;
@@ -89,13 +95,109 @@
             // panel2
             // 
             panel2.BackColor = Color.Black;
+            panel2.Controls.Add(BtnInfo);
+            panel2.Controls.Add(BtnSettings);
+            panel2.Controls.Add(BtnWallet);
+            panel2.Controls.Add(BtnStatics);
+            panel2.Controls.Add(BtnPomo);
             panel2.Controls.Add(pictureBox1);
+            panel2.Controls.Add(BtnWTask);
             panel2.Controls.Add(BtnTasks);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(74, 736);
             panel2.TabIndex = 1;
+            // 
+            // BtnInfo
+            // 
+            BtnInfo.BackColor = Color.Transparent;
+            BtnInfo.BackgroundImage = Properties.Resources.info1;
+            BtnInfo.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnInfo.Cursor = Cursors.Hand;
+            BtnInfo.FlatAppearance.BorderSize = 0;
+            BtnInfo.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnInfo.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnInfo.FlatStyle = FlatStyle.Flat;
+            BtnInfo.ForeColor = Color.Transparent;
+            BtnInfo.Location = new Point(12, 593);
+            BtnInfo.Name = "BtnInfo";
+            BtnInfo.Size = new Size(50, 51);
+            BtnInfo.TabIndex = 8;
+            BtnInfo.UseVisualStyleBackColor = false;
+            BtnInfo.Click += BtnInfo_Click;
+            // 
+            // BtnSettings
+            // 
+            BtnSettings.BackColor = Color.Transparent;
+            BtnSettings.BackgroundImage = Properties.Resources.setting1;
+            BtnSettings.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnSettings.Cursor = Cursors.Hand;
+            BtnSettings.FlatAppearance.BorderSize = 0;
+            BtnSettings.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnSettings.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnSettings.FlatStyle = FlatStyle.Flat;
+            BtnSettings.ForeColor = Color.Transparent;
+            BtnSettings.Location = new Point(12, 659);
+            BtnSettings.Name = "BtnSettings";
+            BtnSettings.Size = new Size(50, 51);
+            BtnSettings.TabIndex = 7;
+            BtnSettings.UseVisualStyleBackColor = false;
+            BtnSettings.Click += BtnSettings_Click;
+            // 
+            // BtnWallet
+            // 
+            BtnWallet.BackColor = Color.Transparent;
+            BtnWallet.BackgroundImage = Properties.Resources.wallet1;
+            BtnWallet.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnWallet.Cursor = Cursors.Hand;
+            BtnWallet.FlatAppearance.BorderSize = 0;
+            BtnWallet.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnWallet.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnWallet.FlatStyle = FlatStyle.Flat;
+            BtnWallet.ForeColor = Color.Transparent;
+            BtnWallet.Location = new Point(12, 396);
+            BtnWallet.Name = "BtnWallet";
+            BtnWallet.Size = new Size(50, 51);
+            BtnWallet.TabIndex = 6;
+            BtnWallet.UseVisualStyleBackColor = false;
+            BtnWallet.Click += BtnWallet_Click;
+            // 
+            // BtnStatics
+            // 
+            BtnStatics.BackColor = Color.Transparent;
+            BtnStatics.BackgroundImage = (Image)resources.GetObject("BtnStatics.BackgroundImage");
+            BtnStatics.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnStatics.Cursor = Cursors.Hand;
+            BtnStatics.FlatAppearance.BorderSize = 0;
+            BtnStatics.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnStatics.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnStatics.FlatStyle = FlatStyle.Flat;
+            BtnStatics.ForeColor = Color.Transparent;
+            BtnStatics.Location = new Point(12, 323);
+            BtnStatics.Name = "BtnStatics";
+            BtnStatics.Size = new Size(50, 51);
+            BtnStatics.TabIndex = 5;
+            BtnStatics.UseVisualStyleBackColor = false;
+            BtnStatics.Click += BtnStatics_Click;
+            // 
+            // BtnPomo
+            // 
+            BtnPomo.BackColor = Color.Transparent;
+            BtnPomo.BackgroundImage = (Image)resources.GetObject("BtnPomo.BackgroundImage");
+            BtnPomo.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnPomo.Cursor = Cursors.Hand;
+            BtnPomo.FlatAppearance.BorderSize = 0;
+            BtnPomo.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnPomo.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnPomo.FlatStyle = FlatStyle.Flat;
+            BtnPomo.ForeColor = Color.Transparent;
+            BtnPomo.Location = new Point(12, 250);
+            BtnPomo.Name = "BtnPomo";
+            BtnPomo.Size = new Size(50, 51);
+            BtnPomo.TabIndex = 4;
+            BtnPomo.UseVisualStyleBackColor = false;
+            BtnPomo.Click += BtnPomo_Click;
             // 
             // pictureBox1
             // 
@@ -107,10 +209,28 @@
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
+            // BtnWTask
+            // 
+            BtnWTask.BackColor = Color.Transparent;
+            BtnWTask.BackgroundImage = Properties.Resources.tasklist2;
+            BtnWTask.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnWTask.Cursor = Cursors.Hand;
+            BtnWTask.FlatAppearance.BorderSize = 0;
+            BtnWTask.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnWTask.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnWTask.FlatStyle = FlatStyle.Flat;
+            BtnWTask.ForeColor = Color.Transparent;
+            BtnWTask.Location = new Point(12, 176);
+            BtnWTask.Name = "BtnWTask";
+            BtnWTask.Size = new Size(50, 51);
+            BtnWTask.TabIndex = 3;
+            BtnWTask.UseVisualStyleBackColor = false;
+            BtnWTask.Click += BtnWTask_Click;
+            // 
             // BtnTasks
             // 
             BtnTasks.BackColor = Color.Transparent;
-            BtnTasks.BackgroundImage = (Image)resources.GetObject("BtnTasks.BackgroundImage");
+            BtnTasks.BackgroundImage = Properties.Resources.task2;
             BtnTasks.BackgroundImageLayout = ImageLayout.Zoom;
             BtnTasks.Cursor = Cursors.Hand;
             BtnTasks.FlatAppearance.BorderSize = 0;
@@ -118,7 +238,7 @@
             BtnTasks.FlatAppearance.MouseOverBackColor = Color.Transparent;
             BtnTasks.FlatStyle = FlatStyle.Flat;
             BtnTasks.ForeColor = Color.Transparent;
-            BtnTasks.Location = new Point(12, 100);
+            BtnTasks.Location = new Point(12, 101);
             BtnTasks.Name = "BtnTasks";
             BtnTasks.Size = new Size(50, 51);
             BtnTasks.TabIndex = 2;
@@ -156,5 +276,11 @@
         private Panel panel2;
         private Button BtnTasks;
         private PictureBox pictureBox1;
+        private Button BtnWTask;
+        private Button BtnPomo;
+        private Button BtnStatics;
+        private Button BtnWallet;
+        private Button BtnSettings;
+        private Button BtnInfo;
     }
 }
