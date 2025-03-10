@@ -41,6 +41,9 @@ namespace FPomoApp
             Application.Exit(); // Uygulamanýn kapanmasýný saðlar
         }
 
-
+        private void BtnTasks_Click(object sender, EventArgs e)
+        {
+            //
+        }
     }
 }

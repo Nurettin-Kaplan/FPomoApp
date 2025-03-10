@@ -2,8 +2,10 @@ Red: #961a25
 
 Dark Blue: #232530
 
-Gray: #adb0b0
+Gray: #2e2e2e
 
 Light Red: #944e54
 
 Font: Gothic UI
+
+https://iconduck.com/icons/53918/task
