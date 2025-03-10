@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace FPomoApp
 {
     public partial class App : Form
@@ -43,7 +45,24 @@ namespace FPomoApp
 
         private void BtnTasks_Click(object sender, EventArgs e)
         {
-            //
+            if (BtnTasks.Tag.ToString() == "taskno")
+            {
+                BtnTasks.BackgroundImage = Properties.Resources.task;
+                BtnTasks.Tag = "task";
+            }
+            else
+            {
+                BtnTasks.BackgroundImage = Properties.Resources.taskno;
+                BtnTasks.Tag = "taskno";
+            }
+            
+        }
+
+        private void App_Load(object sender, EventArgs e)
+        {
+            // task butonunun image kýsmýný deðiþtirmek için yapýlan
+            BtnTasks.BackgroundImage = Properties.Resources.taskno;
+            BtnTasks.Tag = "taskno"; // Hangi resmin kullanýldýðýný takip etmek için
         }
     }
 }

@@ -141,6 +141,7 @@
             Name = "App";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FPOMO";
+            Load += App_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

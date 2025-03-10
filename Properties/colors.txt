@@ -1,0 +1,15 @@
+Red: #961a25
+
+Dark Blue: #232530
+
+Gray: 31; 31; 31
+
+Dark Gray: Black
+
+Light Red: #944e54
+
+Font: Gothic UI
+
+https://iconduck.com/icons/53918/task
+
+User Control Size: Width:1419, Height:704
