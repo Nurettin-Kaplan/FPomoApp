@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
             panel1 = new Panel();
-            button1 = new Button();
+            BtnDown = new Button();
             BtnClose = new Button();
             panel2 = new Panel();
             BtnInfo = new Button();
@@ -38,18 +38,18 @@
             BtnWallet = new Button();
             BtnStatics = new Button();
             BtnPomo = new Button();
-            pictureBox1 = new PictureBox();
+            PBoxLogo = new PictureBox();
             BtnWTask = new Button();
             BtnTasks = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PBoxLogo).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(31, 31, 31);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(BtnDown);
             panel1.Controls.Add(BtnClose);
             panel1.Dock = DockStyle.Top;
             panel1.ForeColor = SystemColors.GrayText;
@@ -61,21 +61,21 @@
             panel1.MouseMove += panel1_MouseMove;
             panel1.MouseUp += panel1_MouseUp;
             // 
-            // button1
+            // BtnDown
             // 
-            button1.BackColor = Color.FromArgb(31, 31, 31);
-            button1.Dock = DockStyle.Right;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Adobe Gothic Std B", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = SystemColors.WindowFrame;
-            button1.Location = new Point(1327, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(46, 32);
-            button1.TabIndex = 1;
-            button1.Text = "_";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            BtnDown.BackColor = Color.FromArgb(31, 31, 31);
+            BtnDown.Dock = DockStyle.Right;
+            BtnDown.FlatAppearance.BorderSize = 0;
+            BtnDown.FlatStyle = FlatStyle.Flat;
+            BtnDown.Font = new Font("Adobe Gothic Std B", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnDown.ForeColor = SystemColors.WindowFrame;
+            BtnDown.Location = new Point(1327, 0);
+            BtnDown.Name = "BtnDown";
+            BtnDown.Size = new Size(46, 32);
+            BtnDown.TabIndex = 1;
+            BtnDown.Text = "_";
+            BtnDown.UseVisualStyleBackColor = false;
+            BtnDown.Click += button1_Click;
             // 
             // BtnClose
             // 
@@ -100,7 +100,7 @@
             panel2.Controls.Add(BtnWallet);
             panel2.Controls.Add(BtnStatics);
             panel2.Controls.Add(BtnPomo);
-            panel2.Controls.Add(pictureBox1);
+            panel2.Controls.Add(PBoxLogo);
             panel2.Controls.Add(BtnWTask);
             panel2.Controls.Add(BtnTasks);
             panel2.Dock = DockStyle.Left;
@@ -199,15 +199,17 @@
             BtnPomo.UseVisualStyleBackColor = false;
             BtnPomo.Click += BtnPomo_Click;
             // 
-            // pictureBox1
+            // PBoxLogo
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(68, 68);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
+            PBoxLogo.Cursor = Cursors.Hand;
+            PBoxLogo.Image = (Image)resources.GetObject("PBoxLogo.Image");
+            PBoxLogo.Location = new Point(3, 0);
+            PBoxLogo.Name = "PBoxLogo";
+            PBoxLogo.Size = new Size(68, 68);
+            PBoxLogo.SizeMode = PictureBoxSizeMode.Zoom;
+            PBoxLogo.TabIndex = 2;
+            PBoxLogo.TabStop = false;
+            PBoxLogo.Click += PBoxLogo_Click;
             // 
             // BtnWTask
             // 
@@ -254,7 +256,7 @@
             Controls.Add(panel1);
             Controls.Add(panel2);
             Font = new Font("Yu Gothic UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            ForeColor = Color.Transparent;
+            ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
@@ -264,18 +266,18 @@
             Load += App_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PBoxLogo).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private Button button1;
+        private Button BtnDown;
         private Button BtnClose;
         private Panel panel2;
         private Button BtnTasks;
-        private PictureBox pictureBox1;
+        private PictureBox PBoxLogo;
         private Button BtnWTask;
         private Button BtnPomo;
         private Button BtnStatics;
