@@ -34,9 +34,15 @@
             BtnClose = new Button();
             PBoxLogo = new PictureBox();
             panel2 = new Panel();
+            textBox1 = new TextBox();
+            groupBox1 = new GroupBox();
+            groupBox2 = new GroupBox();
+            textBox2 = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PBoxLogo).BeginInit();
             panel2.SuspendLayout();
+            groupBox1.SuspendLayout();
+            groupBox2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -107,12 +113,58 @@
             panel2.Size = new Size(74, 650);
             panel2.TabIndex = 2;
             // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.FromArgb(31, 31, 31);
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox1.ForeColor = Color.White;
+            textBox1.Location = new Point(6, 30);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(296, 27);
+            textBox1.TabIndex = 3;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(textBox1);
+            groupBox1.ForeColor = Color.DimGray;
+            groupBox1.Location = new Point(194, 259);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(308, 77);
+            groupBox1.TabIndex = 4;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "    Kullanıcı Adı    ";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(textBox2);
+            groupBox2.ForeColor = Color.DimGray;
+            groupBox2.Location = new Point(194, 366);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(308, 77);
+            groupBox2.TabIndex = 5;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "    Şifre    ";
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = Color.FromArgb(31, 31, 31);
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            textBox2.ForeColor = Color.White;
+            textBox2.Location = new Point(6, 30);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(296, 27);
+            textBox2.TabIndex = 3;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
             ClientSize = new Size(682, 650);
+            Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -126,6 +178,10 @@
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PBoxLogo).EndInit();
             panel2.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -135,5 +191,9 @@
         private Button BtnClose;
         private PictureBox PBoxLogo;
         private Panel panel2;
+        private TextBox textBox1;
+        private GroupBox groupBox1;
+        private GroupBox groupBox2;
+        private TextBox textBox2;
     }
 }
