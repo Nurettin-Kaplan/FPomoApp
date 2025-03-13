@@ -72,6 +72,13 @@ namespace FPomoApp
             }
         }
 
+        private void LoadUserControl(UserControl uc)
+        {
+            panelContainer.Controls.Clear(); // Önceki UserControl’ü temizle
+            uc.Dock = DockStyle.Fill; // Tam boyutlandýr
+            panelContainer.Controls.Add(uc); // Yeni UserControl’ü ekle
+        }
+
         private void ReadConfig()
         {
             try
@@ -150,6 +157,8 @@ namespace FPomoApp
             // Þimdi sadece týklanan butonun resmini deðiþtir
             clickedButton.BackgroundImage = buttonPicture[clickedButton].Item2; // Ýkinci resme geç
             clickedButton.Tag = "second";
+
+            LoadUserControl(new Tasks());
         }
 
         private void BtnPomo_Click(object sender, EventArgs e)

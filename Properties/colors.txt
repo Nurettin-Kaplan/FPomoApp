@@ -13,3 +13,4 @@ Font: Gothic UI
 https://remixicon.com/
 
 User Control Size: Width:1419, Height:704
+Header Location: 45 42

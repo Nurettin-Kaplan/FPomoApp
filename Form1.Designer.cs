@@ -41,6 +41,7 @@
             PBoxLogo = new PictureBox();
             BtnWTask = new Button();
             BtnTasks = new Button();
+            panelContainer = new Panel();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PBoxLogo).BeginInit();
@@ -247,12 +248,21 @@
             BtnTasks.UseVisualStyleBackColor = false;
             BtnTasks.Click += BtnTasks_Click;
             // 
+            // panelContainer
+            // 
+            panelContainer.Dock = DockStyle.Fill;
+            panelContainer.Location = new Point(74, 32);
+            panelContainer.Name = "panelContainer";
+            panelContainer.Size = new Size(1419, 704);
+            panelContainer.TabIndex = 2;
+            // 
             // App
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
             ClientSize = new Size(1493, 736);
+            Controls.Add(panelContainer);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Font = new Font("Yu Gothic UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
@@ -284,5 +294,6 @@
         private Button BtnWallet;
         private Button BtnSettings;
         private Button BtnInfo;
+        private Panel panelContainer;
     }
 }
