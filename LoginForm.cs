@@ -15,6 +15,7 @@ namespace FPomoApp
         public LoginForm()
         {
             InitializeComponent();
+            LoadUserControl(new LoginPanel(this));
         }
 
         private Point _mouseDownLocation;
@@ -54,6 +55,13 @@ namespace FPomoApp
         private void LoginForm_Load(object sender, EventArgs e)
         {
             //
+        }
+
+        public void LoadUserControl(UserControl uc)
+        {
+            PanelContainer2.Controls.Clear(); // Önceki UserControl’ü temizle
+            uc.Dock = DockStyle.Fill; // Tam boyutlandır
+            PanelContainer2.Controls.Add(uc); // Yeni UserControl’ü ekle
         }
     }
 }

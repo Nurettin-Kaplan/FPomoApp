@@ -17,3 +17,5 @@ C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.App.resources
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.Properties.Resources.resources
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.Tasks.resources
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.LoginForm.resources
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.LoginPanel.resources
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.SignInPanel.resources

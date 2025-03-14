@@ -202,7 +202,6 @@
             // 
             // PBoxLogo
             // 
-            PBoxLogo.Cursor = Cursors.Hand;
             PBoxLogo.Image = Properties.Resources.logo1;
             PBoxLogo.Location = new Point(3, 0);
             PBoxLogo.Name = "PBoxLogo";

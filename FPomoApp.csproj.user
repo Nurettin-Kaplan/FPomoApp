@@ -7,6 +7,12 @@
     <Compile Update="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="LoginPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="SigninPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Tasks.cs">
       <SubType>UserControl</SubType>
     </Compile>
