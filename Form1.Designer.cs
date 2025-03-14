@@ -203,14 +203,13 @@
             // PBoxLogo
             // 
             PBoxLogo.Cursor = Cursors.Hand;
-            PBoxLogo.Image = (Image)resources.GetObject("PBoxLogo.Image");
+            PBoxLogo.Image = Properties.Resources.logo1;
             PBoxLogo.Location = new Point(3, 0);
             PBoxLogo.Name = "PBoxLogo";
             PBoxLogo.Size = new Size(68, 68);
             PBoxLogo.SizeMode = PictureBoxSizeMode.Zoom;
             PBoxLogo.TabIndex = 2;
             PBoxLogo.TabStop = false;
-            PBoxLogo.Click += PBoxLogo_Click;
             // 
             // BtnWTask
             // 

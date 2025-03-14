@@ -10,8 +10,6 @@ namespace FPomoApp
         }
 
         private Point _mouseDownLocation;
-        private string configFilePath = Path.Combine(Application.StartupPath, "config.txt");
-        private Dictionary<string, string> configValues = new Dictionary<string, string>();
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -49,11 +47,6 @@ namespace FPomoApp
 
         private void App_Load(object sender, EventArgs e)
         {
-            ReadConfig();
-            ApplyTheme(configValues["Theme"]);
-            PBoxLogo.Image = Properties.Resources.logo2;    // CONFÝG DOSYASI ÝLE TEMA KONTROLÜ BURADA YAPILACAK.
-            PBoxLogo.Tag = "logo2";
-
             // Örnek olarak butonlarý ekleyelim ve onlarýn resimlerini tanýmlayalým
             buttonPicture.Add(BtnTasks, (Properties.Resources.task2, Properties.Resources.task1));
             buttonPicture.Add(BtnWTask, (Properties.Resources.tasklist2, Properties.Resources.tasklist1));
@@ -77,53 +70,6 @@ namespace FPomoApp
             panelContainer.Controls.Clear(); // Önceki UserControl’ü temizle
             uc.Dock = DockStyle.Fill; // Tam boyutlandýr
             panelContainer.Controls.Add(uc); // Yeni UserControl’ü ekle
-        }
-
-        private void ReadConfig()
-        {
-            try
-            {
-                if (File.Exists(configFilePath))
-                {
-                    var lines = File.ReadAllLines(configFilePath);
-                    foreach (var line in lines)
-                    {
-                        var parts = line.Split('=');
-                        if (parts.Length == 2)
-                        {
-                            configValues[parts[0].Trim()] = parts[1].Trim();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ayarlar okunurken hata oluþtu: " + ex.Message);
-            }
-
-            // Eðer dosyada eksik parametre varsa varsayýlanlarý ekle
-            if (!configValues.ContainsKey("Theme"))
-                configValues["Theme"] = "1";
-        }
-
-        private void ApplyTheme(string theme)
-        {
-            if (theme == "0")
-            {
-                this.BackColor = Color.FromArgb(31, 31, 31);
-                this.ForeColor = Color.White;
-                panel1.BackColor = Color.FromArgb(31, 31, 31);
-                BtnDown.BackColor = Color.FromArgb(31, 31, 31);
-                BtnClose.BackColor = Color.FromArgb(31, 31, 31);
-            }
-            else
-            {
-                this.BackColor = Color.White;
-                this.ForeColor = Color.Black;
-                panel1.BackColor = Color.White;
-                BtnDown.BackColor = Color.White;
-                BtnClose.BackColor = Color.White;
-            }
         }
 
         private void BtnTasks_Click(object sender, EventArgs e)
@@ -239,41 +185,6 @@ namespace FPomoApp
             // Þimdi sadece týklanan butonun resmini deðiþtir
             clickedButton.BackgroundImage = buttonPicture[clickedButton].Item2; // Ýkinci resme geç
             clickedButton.Tag = "second";
-        }
-
-        private void PBoxLogo_Click(object sender, EventArgs e)
-        {
-            if (PBoxLogo.Tag.ToString() == "logo2")
-            {
-                PBoxLogo.Image = Properties.Resources.logo1;
-                PBoxLogo.Tag = "logo1";
-            }
-            else
-            {
-                PBoxLogo.Image = Properties.Resources.logo2;
-                PBoxLogo.Tag = "logo2";
-            }
-
-            string newTheme = this.BackColor == Color.White ? "0" : "1";
-            configValues["Theme"] = newTheme;
-
-            // Temayý uygula ve kaydet
-            ApplyTheme(newTheme);
-            SaveConfig();
-
-            // CONFÝG TEMA GÜNCELLEMESÝ BURADA YAPILACAK
-        }
-
-        private void SaveConfig()
-        {
-            try
-            {
-                File.WriteAllLines(configFilePath, configValues.Select(kv => kv.Key + "=" + kv.Value));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ayarlar kaydedilirken hata oluþtu: " + ex.Message);
-            }
         }
     }
 }

@@ -34,15 +34,20 @@
             BtnClose = new Button();
             PBoxLogo = new PictureBox();
             panel2 = new Panel();
-            textBox1 = new TextBox();
+            TxtUsername = new TextBox();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
-            textBox2 = new TextBox();
+            TxtPassword = new TextBox();
+            PBoxUser = new PictureBox();
+            BtnLogin = new Button();
+            BtnSignIn = new Button();
+            LinkLblForgotPass = new LinkLabel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PBoxLogo).BeginInit();
             panel2.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PBoxUser).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -94,14 +99,13 @@
             // 
             PBoxLogo.Cursor = Cursors.Hand;
             PBoxLogo.Dock = DockStyle.Top;
-            PBoxLogo.Image = Properties.Resources.logo2;
+            PBoxLogo.Image = Properties.Resources.logo1;
             PBoxLogo.Location = new Point(0, 0);
             PBoxLogo.Name = "PBoxLogo";
             PBoxLogo.Size = new Size(74, 73);
             PBoxLogo.SizeMode = PictureBoxSizeMode.Zoom;
             PBoxLogo.TabIndex = 2;
             PBoxLogo.TabStop = false;
-            PBoxLogo.Click += PBoxLogo_Click;
             // 
             // panel2
             // 
@@ -110,25 +114,25 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(74, 650);
+            panel2.Size = new Size(74, 679);
             panel2.TabIndex = 2;
             // 
-            // textBox1
+            // TxtUsername
             // 
-            textBox1.BackColor = Color.FromArgb(31, 31, 31);
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(6, 30);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(296, 27);
-            textBox1.TabIndex = 3;
+            TxtUsername.BackColor = Color.FromArgb(31, 31, 31);
+            TxtUsername.BorderStyle = BorderStyle.None;
+            TxtUsername.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtUsername.ForeColor = Color.White;
+            TxtUsername.Location = new Point(16, 30);
+            TxtUsername.Name = "TxtUsername";
+            TxtUsername.Size = new Size(277, 27);
+            TxtUsername.TabIndex = 3;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.ForeColor = Color.DimGray;
-            groupBox1.Location = new Point(194, 259);
+            groupBox1.Controls.Add(TxtUsername);
+            groupBox1.ForeColor = Color.DarkGray;
+            groupBox1.Location = new Point(223, 292);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(308, 77);
             groupBox1.TabIndex = 4;
@@ -137,32 +141,102 @@
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(textBox2);
-            groupBox2.ForeColor = Color.DimGray;
-            groupBox2.Location = new Point(194, 366);
+            groupBox2.Controls.Add(TxtPassword);
+            groupBox2.ForeColor = Color.DarkGray;
+            groupBox2.Location = new Point(223, 399);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(308, 77);
             groupBox2.TabIndex = 5;
             groupBox2.TabStop = false;
             groupBox2.Text = "    Şifre    ";
             // 
-            // textBox2
+            // TxtPassword
             // 
-            textBox2.BackColor = Color.FromArgb(31, 31, 31);
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.ForeColor = Color.White;
-            textBox2.Location = new Point(6, 30);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(296, 27);
-            textBox2.TabIndex = 3;
+            TxtPassword.BackColor = Color.FromArgb(31, 31, 31);
+            TxtPassword.BorderStyle = BorderStyle.None;
+            TxtPassword.Font = new Font("Yu Gothic UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtPassword.ForeColor = Color.White;
+            TxtPassword.Location = new Point(16, 39);
+            TxtPassword.Name = "TxtPassword";
+            TxtPassword.PasswordChar = '●';
+            TxtPassword.Size = new Size(277, 18);
+            TxtPassword.TabIndex = 3;
+            // 
+            // PBoxUser
+            // 
+            PBoxUser.Image = Properties.Resources.user;
+            PBoxUser.Location = new Point(276, 47);
+            PBoxUser.Name = "PBoxUser";
+            PBoxUser.Size = new Size(212, 239);
+            PBoxUser.SizeMode = PictureBoxSizeMode.Zoom;
+            PBoxUser.TabIndex = 6;
+            PBoxUser.TabStop = false;
+            // 
+            // BtnLogin
+            // 
+            BtnLogin.BackColor = Color.Black;
+            BtnLogin.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnLogin.FlatAppearance.BorderSize = 0;
+            BtnLogin.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            BtnLogin.FlatAppearance.MouseOverBackColor = Color.Gray;
+            BtnLogin.FlatStyle = FlatStyle.Flat;
+            BtnLogin.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnLogin.ForeColor = Color.Transparent;
+            BtnLogin.Image = Properties.Resources.loginbox;
+            BtnLogin.ImageAlign = ContentAlignment.MiddleRight;
+            BtnLogin.Location = new Point(417, 542);
+            BtnLogin.Name = "BtnLogin";
+            BtnLogin.RightToLeft = RightToLeft.Yes;
+            BtnLogin.Size = new Size(114, 52);
+            BtnLogin.TabIndex = 7;
+            BtnLogin.Text = "Giriş Yap";
+            BtnLogin.TextAlign = ContentAlignment.MiddleLeft;
+            BtnLogin.UseVisualStyleBackColor = false;
+            // 
+            // BtnSignIn
+            // 
+            BtnSignIn.BackColor = Color.Black;
+            BtnSignIn.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnSignIn.FlatAppearance.BorderSize = 0;
+            BtnSignIn.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            BtnSignIn.FlatAppearance.MouseOverBackColor = Color.Gray;
+            BtnSignIn.FlatStyle = FlatStyle.Flat;
+            BtnSignIn.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnSignIn.ForeColor = Color.Transparent;
+            BtnSignIn.Image = Properties.Resources.user_add_fill;
+            BtnSignIn.ImageAlign = ContentAlignment.MiddleRight;
+            BtnSignIn.Location = new Point(223, 542);
+            BtnSignIn.Name = "BtnSignIn";
+            BtnSignIn.RightToLeft = RightToLeft.Yes;
+            BtnSignIn.Size = new Size(114, 52);
+            BtnSignIn.TabIndex = 8;
+            BtnSignIn.Text = "Kayıt Ol";
+            BtnSignIn.TextAlign = ContentAlignment.MiddleLeft;
+            BtnSignIn.UseVisualStyleBackColor = false;
+            // 
+            // LinkLblForgotPass
+            // 
+            LinkLblForgotPass.ActiveLinkColor = Color.White;
+            LinkLblForgotPass.AutoSize = true;
+            LinkLblForgotPass.LinkColor = Color.Gray;
+            LinkLblForgotPass.Location = new Point(223, 490);
+            LinkLblForgotPass.Name = "LinkLblForgotPass";
+            LinkLblForgotPass.Size = new Size(192, 25);
+            LinkLblForgotPass.TabIndex = 9;
+            LinkLblForgotPass.TabStop = true;
+            LinkLblForgotPass.Text = "Şifrenizi mi unuttunuz?";
+            LinkLblForgotPass.VisitedLinkColor = Color.Silver;
             // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
-            ClientSize = new Size(682, 650);
+            ClientSize = new Size(682, 679);
+            Controls.Add(LinkLblForgotPass);
+            Controls.Add(BtnSignIn);
+            Controls.Add(BtnLogin);
+            Controls.Add(PBoxUser);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel1);
@@ -182,7 +256,9 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PBoxUser).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -191,9 +267,13 @@
         private Button BtnClose;
         private PictureBox PBoxLogo;
         private Panel panel2;
-        private TextBox textBox1;
+        private TextBox TxtUsername;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
-        private TextBox textBox2;
+        private TextBox TxtPassword;
+        private PictureBox PBoxUser;
+        private Button BtnLogin;
+        private Button BtnSignIn;
+        private LinkLabel LinkLblForgotPass;
     }
 }
