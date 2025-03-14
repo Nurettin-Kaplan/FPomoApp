@@ -31,17 +31,21 @@
             BtnBack = new Button();
             BtnSignIn = new Button();
             groupBox5 = new GroupBox();
-            textBox1 = new TextBox();
+            PBoxViewPass2 = new PictureBox();
+            TxtPassword2 = new TextBox();
             groupBox2 = new GroupBox();
+            PBoxViewPass = new PictureBox();
             TxtPassword = new TextBox();
             groupBox4 = new GroupBox();
-            textBox3 = new TextBox();
             groupBox3 = new GroupBox();
-            textBox2 = new TextBox();
+            TxtEmail = new TextBox();
             groupBox1 = new GroupBox();
             TxtUsername = new TextBox();
+            maskedTextBox1 = new MaskedTextBox();
             groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PBoxViewPass2).BeginInit();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PBoxViewPass).BeginInit();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -92,7 +96,8 @@
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(textBox1);
+            groupBox5.Controls.Add(PBoxViewPass2);
+            groupBox5.Controls.Add(TxtPassword2);
             groupBox5.ForeColor = Color.DarkGray;
             groupBox5.Location = new Point(150, 241);
             groupBox5.Name = "groupBox5";
@@ -101,20 +106,33 @@
             groupBox5.TabStop = false;
             groupBox5.Text = "    Şifre (Tekrar)    ";
             // 
-            // textBox1
+            // PBoxViewPass2
             // 
-            textBox1.BackColor = Color.FromArgb(31, 31, 31);
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Yu Gothic UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(16, 39);
-            textBox1.Name = "textBox1";
-            textBox1.PasswordChar = '●';
-            textBox1.Size = new Size(277, 18);
-            textBox1.TabIndex = 3;
+            PBoxViewPass2.Cursor = Cursors.Hand;
+            PBoxViewPass2.Image = Properties.Resources.eyeclose;
+            PBoxViewPass2.Location = new Point(273, 30);
+            PBoxViewPass2.Name = "PBoxViewPass2";
+            PBoxViewPass2.Size = new Size(29, 27);
+            PBoxViewPass2.SizeMode = PictureBoxSizeMode.Zoom;
+            PBoxViewPass2.TabIndex = 18;
+            PBoxViewPass2.TabStop = false;
+            PBoxViewPass2.Click += PBoxViewPass2_Click;
+            // 
+            // TxtPassword2
+            // 
+            TxtPassword2.BackColor = Color.FromArgb(31, 31, 31);
+            TxtPassword2.BorderStyle = BorderStyle.None;
+            TxtPassword2.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtPassword2.ForeColor = Color.White;
+            TxtPassword2.Location = new Point(16, 30);
+            TxtPassword2.Name = "TxtPassword2";
+            TxtPassword2.PasswordChar = '•';
+            TxtPassword2.Size = new Size(258, 27);
+            TxtPassword2.TabIndex = 3;
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(PBoxViewPass);
             groupBox2.Controls.Add(TxtPassword);
             groupBox2.ForeColor = Color.DarkGray;
             groupBox2.Location = new Point(150, 145);
@@ -124,21 +142,33 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "    Şifre    ";
             // 
+            // PBoxViewPass
+            // 
+            PBoxViewPass.Cursor = Cursors.Hand;
+            PBoxViewPass.Image = Properties.Resources.eyeclose;
+            PBoxViewPass.Location = new Point(273, 30);
+            PBoxViewPass.Name = "PBoxViewPass";
+            PBoxViewPass.Size = new Size(29, 27);
+            PBoxViewPass.SizeMode = PictureBoxSizeMode.Zoom;
+            PBoxViewPass.TabIndex = 17;
+            PBoxViewPass.TabStop = false;
+            PBoxViewPass.Click += PBoxViewPass_Click;
+            // 
             // TxtPassword
             // 
             TxtPassword.BackColor = Color.FromArgb(31, 31, 31);
             TxtPassword.BorderStyle = BorderStyle.None;
-            TxtPassword.Font = new Font("Yu Gothic UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtPassword.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TxtPassword.ForeColor = Color.White;
-            TxtPassword.Location = new Point(16, 39);
+            TxtPassword.Location = new Point(16, 30);
             TxtPassword.Name = "TxtPassword";
-            TxtPassword.PasswordChar = '●';
-            TxtPassword.Size = new Size(277, 18);
+            TxtPassword.PasswordChar = '•';
+            TxtPassword.Size = new Size(258, 27);
             TxtPassword.TabIndex = 3;
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(textBox3);
+            groupBox4.Controls.Add(maskedTextBox1);
             groupBox4.ForeColor = Color.DarkGray;
             groupBox4.Location = new Point(150, 432);
             groupBox4.Name = "groupBox4";
@@ -147,20 +177,9 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "    Telefon    ";
             // 
-            // textBox3
-            // 
-            textBox3.BackColor = Color.FromArgb(31, 31, 31);
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.ForeColor = Color.White;
-            textBox3.Location = new Point(16, 30);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(277, 27);
-            textBox3.TabIndex = 3;
-            // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(textBox2);
+            groupBox3.Controls.Add(TxtEmail);
             groupBox3.ForeColor = Color.DarkGray;
             groupBox3.Location = new Point(150, 337);
             groupBox3.Name = "groupBox3";
@@ -169,16 +188,16 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "    E-Mail    ";
             // 
-            // textBox2
+            // TxtEmail
             // 
-            textBox2.BackColor = Color.FromArgb(31, 31, 31);
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.ForeColor = Color.White;
-            textBox2.Location = new Point(16, 30);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(277, 27);
-            textBox2.TabIndex = 3;
+            TxtEmail.BackColor = Color.FromArgb(31, 31, 31);
+            TxtEmail.BorderStyle = BorderStyle.None;
+            TxtEmail.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtEmail.ForeColor = Color.White;
+            TxtEmail.Location = new Point(16, 30);
+            TxtEmail.Name = "TxtEmail";
+            TxtEmail.Size = new Size(277, 27);
+            TxtEmail.TabIndex = 3;
             // 
             // groupBox1
             // 
@@ -202,6 +221,18 @@
             TxtUsername.Size = new Size(277, 27);
             TxtUsername.TabIndex = 3;
             // 
+            // maskedTextBox1
+            // 
+            maskedTextBox1.BackColor = Color.FromArgb(31, 31, 31);
+            maskedTextBox1.BorderStyle = BorderStyle.None;
+            maskedTextBox1.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            maskedTextBox1.ForeColor = Color.White;
+            maskedTextBox1.Location = new Point(16, 30);
+            maskedTextBox1.Mask = "0000000000";
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(258, 27);
+            maskedTextBox1.TabIndex = 26;
+            // 
             // SigninPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -218,8 +249,10 @@
             Size = new Size(608, 647);
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PBoxViewPass2).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PBoxViewPass).EndInit();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
             groupBox3.ResumeLayout(false);
@@ -234,14 +267,16 @@
         private Button BtnBack;
         private Button BtnSignIn;
         private GroupBox groupBox5;
-        private TextBox textBox1;
+        private TextBox TxtPassword2;
         private GroupBox groupBox2;
         private TextBox TxtPassword;
         private GroupBox groupBox4;
-        private TextBox textBox3;
         private GroupBox groupBox3;
-        private TextBox textBox2;
+        private TextBox TxtEmail;
         private GroupBox groupBox1;
         private TextBox TxtUsername;
+        private PictureBox PBoxViewPass2;
+        private PictureBox PBoxViewPass;
+        private MaskedTextBox maskedTextBox1;
     }
 }

@@ -33,11 +33,13 @@
             BtnLogin = new Button();
             PBoxUser = new PictureBox();
             groupBox2 = new GroupBox();
+            PBoxViewPass = new PictureBox();
             TxtPassword = new TextBox();
             groupBox1 = new GroupBox();
             TxtUsername = new TextBox();
             ((System.ComponentModel.ISupportInitialize)PBoxUser).BeginInit();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PBoxViewPass).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -110,6 +112,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(PBoxViewPass);
             groupBox2.Controls.Add(TxtPassword);
             groupBox2.ForeColor = Color.DarkGray;
             groupBox2.Location = new Point(154, 374);
@@ -119,16 +122,28 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "    Şifre    ";
             // 
+            // PBoxViewPass
+            // 
+            PBoxViewPass.Cursor = Cursors.Hand;
+            PBoxViewPass.Image = Properties.Resources.eyeclose;
+            PBoxViewPass.Location = new Point(273, 30);
+            PBoxViewPass.Name = "PBoxViewPass";
+            PBoxViewPass.Size = new Size(29, 27);
+            PBoxViewPass.SizeMode = PictureBoxSizeMode.Zoom;
+            PBoxViewPass.TabIndex = 16;
+            PBoxViewPass.TabStop = false;
+            PBoxViewPass.Click += PBoxViewPass_Click;
+            // 
             // TxtPassword
             // 
             TxtPassword.BackColor = Color.FromArgb(31, 31, 31);
             TxtPassword.BorderStyle = BorderStyle.None;
-            TxtPassword.Font = new Font("Yu Gothic UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TxtPassword.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             TxtPassword.ForeColor = Color.White;
-            TxtPassword.Location = new Point(16, 39);
+            TxtPassword.Location = new Point(16, 30);
             TxtPassword.Name = "TxtPassword";
-            TxtPassword.PasswordChar = '●';
-            TxtPassword.Size = new Size(277, 18);
+            TxtPassword.PasswordChar = '•';
+            TxtPassword.Size = new Size(254, 27);
             TxtPassword.TabIndex = 3;
             // 
             // groupBox1
@@ -150,7 +165,7 @@
             TxtUsername.ForeColor = Color.White;
             TxtUsername.Location = new Point(16, 30);
             TxtUsername.Name = "TxtUsername";
-            TxtUsername.Size = new Size(277, 27);
+            TxtUsername.Size = new Size(254, 27);
             TxtUsername.TabIndex = 3;
             // 
             // LoginPanel
@@ -169,6 +184,7 @@
             ((System.ComponentModel.ISupportInitialize)PBoxUser).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PBoxViewPass).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -185,5 +201,6 @@
         private TextBox TxtPassword;
         private GroupBox groupBox1;
         private TextBox TxtUsername;
+        private PictureBox PBoxViewPass;
     }
 }
