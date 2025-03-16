@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "eCJx65me0/jADofOgQ8KOWJW8ZvRZnHTBtRAwHOpulHRkdnb3gSgHudsE9ehws5PziI+UU/kBbttLFabic4BKA==",
+  "dgSpecHash": "wd9zJE9u2ICPCIk9QBdsKWAkWDJEnIR2XE5T0DYjwY370rg9d0ZnVUEi0obC1d/wxDr3gBU6JzRBA7D9sbQbTg==",
   "success": true,
   "projectFilePath": "C:\\FPomoApp\\FPomoApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\nuret\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\nuret\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\nuret\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\nuret\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\nuret\\.nuget\\packages\\system.data.sqlclient\\4.9.0\\system.data.sqlclient.4.9.0.nupkg.sha512"
+  ],
   "logs": []
 }

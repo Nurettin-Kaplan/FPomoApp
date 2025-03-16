@@ -19,3 +19,11 @@ C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.Tasks.resources
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.LoginForm.resources
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.LoginPanel.resources
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.SignInPanel.resources
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.csproj.AssemblyReference.cache
+C:\FPomoApp\bin\Debug\net7.0-windows\System.Data.SqlClient.dll
+C:\FPomoApp\bin\Debug\net7.0-windows\runtimes\win-arm64\native\sni.dll
+C:\FPomoApp\bin\Debug\net7.0-windows\runtimes\win-x64\native\sni.dll
+C:\FPomoApp\bin\Debug\net7.0-windows\runtimes\win-x86\native\sni.dll
+C:\FPomoApp\bin\Debug\net7.0-windows\runtimes\unix\lib\net6.0\System.Data.SqlClient.dll
+C:\FPomoApp\bin\Debug\net7.0-windows\runtimes\win\lib\net6.0\System.Data.SqlClient.dll
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.csproj.CopyComplete

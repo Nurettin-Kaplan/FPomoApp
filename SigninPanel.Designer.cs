@@ -37,11 +37,12 @@
             PBoxViewPass = new PictureBox();
             TxtPassword = new TextBox();
             groupBox4 = new GroupBox();
+            MTxtPhone = new MaskedTextBox();
             groupBox3 = new GroupBox();
             TxtEmail = new TextBox();
             groupBox1 = new GroupBox();
             TxtUsername = new TextBox();
-            maskedTextBox1 = new MaskedTextBox();
+            LblSucces = new Label();
             groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PBoxViewPass2).BeginInit();
             groupBox2.SuspendLayout();
@@ -67,7 +68,7 @@
             BtnBack.Name = "BtnBack";
             BtnBack.RightToLeft = RightToLeft.Yes;
             BtnBack.Size = new Size(114, 52);
-            BtnBack.TabIndex = 25;
+            BtnBack.TabIndex = 12;
             BtnBack.Text = "Geri";
             BtnBack.UseVisualStyleBackColor = false;
             BtnBack.Click += BtnBack_Click;
@@ -88,7 +89,7 @@
             BtnSignIn.Name = "BtnSignIn";
             BtnSignIn.RightToLeft = RightToLeft.Yes;
             BtnSignIn.Size = new Size(114, 52);
-            BtnSignIn.TabIndex = 24;
+            BtnSignIn.TabIndex = 11;
             BtnSignIn.Text = "Kayıt Ol";
             BtnSignIn.TextAlign = ContentAlignment.MiddleLeft;
             BtnSignIn.UseVisualStyleBackColor = false;
@@ -102,7 +103,7 @@
             groupBox5.Location = new Point(150, 241);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(308, 77);
-            groupBox5.TabIndex = 23;
+            groupBox5.TabIndex = 8;
             groupBox5.TabStop = false;
             groupBox5.Text = "    Şifre (Tekrar)    ";
             // 
@@ -128,7 +129,7 @@
             TxtPassword2.Name = "TxtPassword2";
             TxtPassword2.PasswordChar = '•';
             TxtPassword2.Size = new Size(258, 27);
-            TxtPassword2.TabIndex = 3;
+            TxtPassword2.TabIndex = 8;
             // 
             // groupBox2
             // 
@@ -138,7 +139,7 @@
             groupBox2.Location = new Point(150, 145);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(308, 77);
-            groupBox2.TabIndex = 22;
+            groupBox2.TabIndex = 7;
             groupBox2.TabStop = false;
             groupBox2.Text = "    Şifre    ";
             // 
@@ -164,18 +165,30 @@
             TxtPassword.Name = "TxtPassword";
             TxtPassword.PasswordChar = '•';
             TxtPassword.Size = new Size(258, 27);
-            TxtPassword.TabIndex = 3;
+            TxtPassword.TabIndex = 7;
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(maskedTextBox1);
+            groupBox4.Controls.Add(MTxtPhone);
             groupBox4.ForeColor = Color.DarkGray;
             groupBox4.Location = new Point(150, 432);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(308, 77);
-            groupBox4.TabIndex = 20;
+            groupBox4.TabIndex = 10;
             groupBox4.TabStop = false;
             groupBox4.Text = "    Telefon    ";
+            // 
+            // MTxtPhone
+            // 
+            MTxtPhone.BackColor = Color.FromArgb(31, 31, 31);
+            MTxtPhone.BorderStyle = BorderStyle.None;
+            MTxtPhone.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            MTxtPhone.ForeColor = Color.White;
+            MTxtPhone.Location = new Point(16, 30);
+            MTxtPhone.Mask = "0000000000";
+            MTxtPhone.Name = "MTxtPhone";
+            MTxtPhone.Size = new Size(258, 27);
+            MTxtPhone.TabIndex = 10;
             // 
             // groupBox3
             // 
@@ -184,7 +197,7 @@
             groupBox3.Location = new Point(150, 337);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(308, 77);
-            groupBox3.TabIndex = 21;
+            groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
             groupBox3.Text = "    E-Mail    ";
             // 
@@ -197,7 +210,7 @@
             TxtEmail.Location = new Point(16, 30);
             TxtEmail.Name = "TxtEmail";
             TxtEmail.Size = new Size(277, 27);
-            TxtEmail.TabIndex = 3;
+            TxtEmail.TabIndex = 9;
             // 
             // groupBox1
             // 
@@ -206,7 +219,7 @@
             groupBox1.Location = new Point(150, 52);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(308, 77);
-            groupBox1.TabIndex = 19;
+            groupBox1.TabIndex = 6;
             groupBox1.TabStop = false;
             groupBox1.Text = "    Kullanıcı Adı    ";
             // 
@@ -219,25 +232,24 @@
             TxtUsername.Location = new Point(16, 30);
             TxtUsername.Name = "TxtUsername";
             TxtUsername.Size = new Size(277, 27);
-            TxtUsername.TabIndex = 3;
+            TxtUsername.TabIndex = 6;
             // 
-            // maskedTextBox1
+            // LblSucces
             // 
-            maskedTextBox1.BackColor = Color.FromArgb(31, 31, 31);
-            maskedTextBox1.BorderStyle = BorderStyle.None;
-            maskedTextBox1.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            maskedTextBox1.ForeColor = Color.White;
-            maskedTextBox1.Location = new Point(16, 30);
-            maskedTextBox1.Mask = "0000000000";
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(258, 27);
-            maskedTextBox1.TabIndex = 26;
+            LblSucces.AutoSize = true;
+            LblSucces.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            LblSucces.ForeColor = Color.Lime;
+            LblSucces.Location = new Point(176, 609);
+            LblSucces.Name = "LblSucces";
+            LblSucces.Size = new Size(0, 28);
+            LblSucces.TabIndex = 13;
             // 
             // SigninPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
+            Controls.Add(LblSucces);
             Controls.Add(BtnBack);
             Controls.Add(BtnSignIn);
             Controls.Add(groupBox5);
@@ -260,6 +272,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -277,6 +290,7 @@
         private TextBox TxtUsername;
         private PictureBox PBoxViewPass2;
         private PictureBox PBoxViewPass;
-        private MaskedTextBox maskedTextBox1;
+        private MaskedTextBox MTxtPhone;
+        private Label LblSucces;
     }
 }

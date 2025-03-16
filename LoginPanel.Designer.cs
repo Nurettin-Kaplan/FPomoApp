@@ -51,7 +51,7 @@
             LinkLblForgotPass.Location = new Point(154, 465);
             LinkLblForgotPass.Name = "LinkLblForgotPass";
             LinkLblForgotPass.Size = new Size(159, 20);
-            LinkLblForgotPass.TabIndex = 15;
+            LinkLblForgotPass.TabIndex = 3;
             LinkLblForgotPass.TabStop = true;
             LinkLblForgotPass.Text = "Şifrenizi mi unuttunuz?";
             LinkLblForgotPass.VisitedLinkColor = Color.Silver;
@@ -72,7 +72,7 @@
             BtnSignIn.Name = "BtnSignIn";
             BtnSignIn.RightToLeft = RightToLeft.Yes;
             BtnSignIn.Size = new Size(114, 52);
-            BtnSignIn.TabIndex = 14;
+            BtnSignIn.TabIndex = 5;
             BtnSignIn.Text = "Kayıt Ol";
             BtnSignIn.TextAlign = ContentAlignment.MiddleLeft;
             BtnSignIn.UseVisualStyleBackColor = false;
@@ -94,7 +94,7 @@
             BtnLogin.Name = "BtnLogin";
             BtnLogin.RightToLeft = RightToLeft.Yes;
             BtnLogin.Size = new Size(114, 52);
-            BtnLogin.TabIndex = 13;
+            BtnLogin.TabIndex = 4;
             BtnLogin.Text = "Giriş Yap";
             BtnLogin.TextAlign = ContentAlignment.MiddleLeft;
             BtnLogin.UseVisualStyleBackColor = false;
@@ -118,7 +118,7 @@
             groupBox2.Location = new Point(154, 374);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(308, 77);
-            groupBox2.TabIndex = 11;
+            groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "    Şifre    ";
             // 
@@ -144,7 +144,7 @@
             TxtPassword.Name = "TxtPassword";
             TxtPassword.PasswordChar = '•';
             TxtPassword.Size = new Size(254, 27);
-            TxtPassword.TabIndex = 3;
+            TxtPassword.TabIndex = 2;
             // 
             // groupBox1
             // 
@@ -153,7 +153,7 @@
             groupBox1.Location = new Point(154, 267);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(308, 77);
-            groupBox1.TabIndex = 10;
+            groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "    Kullanıcı Adı    ";
             // 
@@ -166,7 +166,7 @@
             TxtUsername.Location = new Point(16, 30);
             TxtUsername.Name = "TxtUsername";
             TxtUsername.Size = new Size(254, 27);
-            TxtUsername.TabIndex = 3;
+            TxtUsername.TabIndex = 1;
             // 
             // LoginPanel
             // 

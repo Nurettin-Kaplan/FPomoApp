@@ -49,7 +49,7 @@
             panel1.Location = new Point(74, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(608, 32);
-            panel1.TabIndex = 1;
+            panel1.TabIndex = 49;
             panel1.MouseDown += panel1_MouseDown;
             panel1.MouseMove += panel1_MouseMove;
             panel1.MouseUp += panel1_MouseUp;
@@ -65,7 +65,7 @@
             BtnDown.Location = new Point(516, 0);
             BtnDown.Name = "BtnDown";
             BtnDown.Size = new Size(46, 32);
-            BtnDown.TabIndex = 3;
+            BtnDown.TabIndex = 50;
             BtnDown.Text = "_";
             BtnDown.UseVisualStyleBackColor = false;
             BtnDown.Click += BtnDown_Click;
@@ -80,7 +80,7 @@
             BtnClose.Location = new Point(562, 0);
             BtnClose.Name = "BtnClose";
             BtnClose.Size = new Size(46, 32);
-            BtnClose.TabIndex = 2;
+            BtnClose.TabIndex = 51;
             BtnClose.Text = "X";
             BtnClose.UseVisualStyleBackColor = false;
             BtnClose.Click += BtnClose_Click;
@@ -129,7 +129,7 @@
             Margin = new Padding(4);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "LoginForm";
+            Text = "Giriş Ekranı";
             Load += LoginForm_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PBoxLogo).EndInit();
