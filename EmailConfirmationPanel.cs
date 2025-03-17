@@ -82,22 +82,17 @@ namespace FPomoApp
             {
                 timer1.Enabled = false; // Timer'ı durdur
                 confirmationTask.TrySetResult(0);  // Task tamamlanmadıysa 0 olarak ayarla
-                mainForm.LoadUserControl(new SigninPanel(mainForm));
             }
         }
-
         private void BtnConfrim_Click(object sender, EventArgs e)
         {
             if (MTxtCode.Text == code)
             {
                 confirmationTask.TrySetResult(1);
-                mainForm.LoadUserControl(new LoginPanel(mainForm));
             }
             else
             {
-                MessageBox.Show("Girilen kod yanlış.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 confirmationTask.TrySetResult(0);  // Task tamamlanmadıysa 0 olarak ayarla
-                mainForm.LoadUserControl(new SigninPanel(mainForm));
             }
         }
     }

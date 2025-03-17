@@ -29,3 +29,4 @@ C:\FPomoApp\bin\Debug\net7.0-windows\runtimes\win\lib\net6.0\System.Data.SqlClie
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.csproj.CopyComplete
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.EmailConfirmationPanel.resources
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.RefPasswordPanel.resources
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.ChangePassword.resources

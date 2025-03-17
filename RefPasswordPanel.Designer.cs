@@ -37,6 +37,7 @@
             TxtEmail = new TextBox();
             groupBox1 = new GroupBox();
             TxtUsername = new TextBox();
+            label1 = new Label();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -93,6 +94,7 @@
             BtnVerify.Text = "Doğrula";
             BtnVerify.TextAlign = ContentAlignment.MiddleLeft;
             BtnVerify.UseVisualStyleBackColor = false;
+            BtnVerify.Click += BtnVerify_Click;
             // 
             // groupBox4
             // 
@@ -164,11 +166,22 @@
             TxtUsername.Size = new Size(277, 27);
             TxtUsername.TabIndex = 6;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(182, 488);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 28);
+            label1.TabIndex = 22;
+            // 
             // RefPasswordPanel
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
+            Controls.Add(label1);
             Controls.Add(LblStatus);
             Controls.Add(BtnBack);
             Controls.Add(BtnVerify);
@@ -201,5 +214,6 @@
         private TextBox TxtEmail;
         private GroupBox groupBox1;
         private TextBox TxtUsername;
+        private Label label1;
     }
 }

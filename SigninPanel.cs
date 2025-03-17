@@ -36,21 +36,21 @@ namespace FPomoApp
         {
             if (name == "" || pass1 == "" || pass2 == "" || mail == "" || phone == "")
             {
-                LblStatus.Text = "Girilen bilgiler eksiktir.";
+                LblStatus.Text = "Gereken bilgileri kontrol edin.";
                 return 0;
             }
             else if (!EmailValidator.IsValidEmail(mail))
             {
                 LblStatus.Text = "Geçersiz e-posta adresi girdiniz.";
-                TxtEmail.Text = "";
+                TxtEmail.Clear();
                 TxtEmail.Focus();
                 return 0;
             }
             else if (pass1 != pass2)
             {
                 LblStatus.Text = "Girilen şifreler eşleşmiyor.";
-                TxtPassword.Text = "";
-                TxtPassword2.Text = "";
+                TxtPassword.Clear();
+                TxtPassword2.Clear();
                 TxtPassword.Focus();
                 return 0;
             }
@@ -93,27 +93,22 @@ namespace FPomoApp
         {
             int result = 0;
             string connectionString = "Server=localhost; Database=FPomoDB; Integrated Security=True;";
-            string username = TxtUsername.Text;
-            string password1 = TxtPassword.Text;
-            string password2 = TxtPassword2.Text;
-            string email = TxtEmail.Text;
-            string phone = MTxtPhone.Text;
             string query = "INSERT INTO TblUsers (UserName, Password, Mail, Phone) VALUES (@name, @pass, @mail, @phone)";
 
-            result += CheckValues(username, password1, password2, email, phone);
+            result += CheckValues(TxtUsername.Text, TxtPassword.Text, TxtPassword2.Text, TxtEmail.Text, MTxtPhone.Text);
 
             // Hangi bilgi var, sadece onu değiştir
-            if (CheckIfUsernameExists(username))
+            if (CheckIfUsernameExists(TxtUsername.Text))
             {
                 LblStatus.Text = "Bu kullanıcı adı zaten var.";
                 result -= 1;
             }
-            else if (CheckIfEmailExists(email))
+            else if (CheckIfEmailExists(TxtEmail.Text))
             {
                 LblStatus.Text = "Bu e-posta zaten var.";
                 result -= 1;
             }
-            else if (CheckIfPhoneExists(phone))
+            else if (CheckIfPhoneExists(MTxtPhone.Text))
             {
                 LblStatus.Text = "Bu telefon numarası zaten var.";
                 result -= 1;
@@ -121,46 +116,50 @@ namespace FPomoApp
 
             if (result == 1)
             {
-                var emailPanel = new EmailConfirmationPanel(mainForm, email);
+                var emailPanel = new EmailConfirmationPanel(mainForm, TxtEmail.Text);
                 mainForm.LoadUserControl(emailPanel); // eposta onay ekranı
                 result += await emailPanel.WaitForEmailConfirmation();
-            }
 
-            if (result == 2)
-            {
-                using (SqlConnection con = new SqlConnection(connectionString))
+                if (result == 2)
                 {
-                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    using (SqlConnection con = new SqlConnection(connectionString))
                     {
-                        // Parametreleri tanımla
-                        cmd.Parameters.AddWithValue("@name", username);
-                        cmd.Parameters.AddWithValue("@pass", password1);
-                        cmd.Parameters.AddWithValue("@mail", email);
-                        cmd.Parameters.AddWithValue("@phone", phone);
-
-                        try
+                        using (SqlCommand cmd = new SqlCommand(query, con))
                         {
-                            con.Open(); // Bağlantıyı aç
-                            result += cmd.ExecuteNonQuery(); // Sorguyu çalıştır
-                            con.Close(); // Bağlantıyı kapat
+                            // Parametreleri tanımla
+                            cmd.Parameters.AddWithValue("@name", TxtUsername.Text);
+                            cmd.Parameters.AddWithValue("@pass", TxtPassword.Text);
+                            cmd.Parameters.AddWithValue("@mail", TxtEmail.Text);
+                            cmd.Parameters.AddWithValue("@phone", MTxtPhone.Text);
 
-                            LblStatus.Text = "Kayıt başarıyla tamamlandı.";
-                            TxtUsername.Text = "";
-                            TxtPassword.Text = "";
-                            TxtPassword2.Text = "";
-                            TxtEmail.Text = "";
-                            MTxtPhone.Text = "";
-                            TxtUsername.Focus();
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Hata: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            try
+                            {
+                                con.Open(); // Bağlantıyı aç
+                                result += cmd.ExecuteNonQuery(); // Sorguyu çalıştır
+                                con.Close(); // Bağlantıyı kapat
+
+                                LblStatus.Text = "Kayıt başarıyla tamamlandı.";
+                                TxtUsername.Clear();
+                                TxtPassword.Clear();
+                                TxtPassword2.Clear();
+                                TxtEmail.Clear();
+                                MTxtPhone.Clear();
+                                TxtUsername.Focus();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Hata: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                     }
                 }
+                else
+                {
+                    mainForm.LoadUserControl(new SigninPanel(mainForm));
+                    LblStatus.Text = "Email doğrulama başarısız.";
+                }
             }
         }
-
         private void PBoxViewPass_Click(object sender, EventArgs e)
         {
             // PasswordBox'taki metni görünür yapmak
@@ -175,7 +174,6 @@ namespace FPomoApp
                 PBoxViewPass.Image = Properties.Resources.eyeclose; // Görüntü değişimi
             }
         }
-
         private void PBoxViewPass2_Click(object sender, EventArgs e)
         {
             if (TxtPassword2.PasswordChar == '•')
