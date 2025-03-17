@@ -42,7 +42,7 @@
             TxtEmail = new TextBox();
             groupBox1 = new GroupBox();
             TxtUsername = new TextBox();
-            LblSucces = new Label();
+            LblStatus = new Label();
             groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PBoxViewPass2).BeginInit();
             groupBox2.SuspendLayout();
@@ -234,22 +234,22 @@
             TxtUsername.Size = new Size(277, 27);
             TxtUsername.TabIndex = 6;
             // 
-            // LblSucces
+            // LblStatus
             // 
-            LblSucces.AutoSize = true;
-            LblSucces.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            LblSucces.ForeColor = Color.Lime;
-            LblSucces.Location = new Point(176, 609);
-            LblSucces.Name = "LblSucces";
-            LblSucces.Size = new Size(0, 28);
-            LblSucces.TabIndex = 13;
+            LblStatus.AutoSize = true;
+            LblStatus.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            LblStatus.ForeColor = Color.Red;
+            LblStatus.Location = new Point(176, 609);
+            LblStatus.Name = "LblStatus";
+            LblStatus.Size = new Size(0, 28);
+            LblStatus.TabIndex = 13;
             // 
             // SigninPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
-            Controls.Add(LblSucces);
+            Controls.Add(LblStatus);
             Controls.Add(BtnBack);
             Controls.Add(BtnSignIn);
             Controls.Add(groupBox5);
@@ -291,6 +291,6 @@
         private PictureBox PBoxViewPass2;
         private PictureBox PBoxViewPass;
         private MaskedTextBox MTxtPhone;
-        private Label LblSucces;
+        private Label LblStatus;
     }
 }

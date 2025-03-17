@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace FPomoApp
 {
@@ -38,22 +36,59 @@ namespace FPomoApp
         {
             if (name == "" || pass1 == "" || pass2 == "" || mail == "" || phone == "")
             {
-                MessageBox.Show("Girilen bilgiler eksiktir.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LblStatus.Text = "Girilen bilgiler eksiktir.";
                 return 0;
             }
             else if (!EmailValidator.IsValidEmail(mail))
             {
-                MessageBox.Show("Geçersiz e-posta adresi girdiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LblStatus.Text = "Geçersiz e-posta adresi girdiniz.";
+                TxtEmail.Text = "";
+                TxtEmail.Focus();
                 return 0;
             }
             else if (pass1 != pass2)
             {
-                MessageBox.Show("Girilen şifreler eşleşmiyor.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LblStatus.Text = "Girilen şifreler eşleşmiyor.";
+                TxtPassword.Text = "";
+                TxtPassword2.Text = "";
+                TxtPassword.Focus();
                 return 0;
             }
             return 1;
         }
-
+        // Kullanıcı adı kontrol fonksiyonu
+        private bool CheckIfUsernameExists(string username)
+        {
+            string query = "SELECT COUNT(*) FROM TblUsers WHERE UserName = @name";
+            return CheckIfExists(query, username, "name");
+        }
+        // E-posta kontrol fonksiyonu
+        private bool CheckIfEmailExists(string email)
+        {
+            string query = "SELECT COUNT(*) FROM TblUsers WHERE Mail = @mail";
+            return CheckIfExists(query, email, "mail");
+        }
+        // Telefon numarası kontrol fonksiyonu
+        private bool CheckIfPhoneExists(string phone)
+        {
+            string query = "SELECT COUNT(*) FROM TblUsers WHERE Phone = @phone";
+            return CheckIfExists(query, phone, "phone");
+        }
+        private bool CheckIfExists(string query, string value, string paramName)
+        {
+            string connectionString = "Server=localhost; Database=FPomoDB; Integrated Security=True;";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    cmd.Parameters.AddWithValue("@" + paramName, value);
+                    con.Open();
+                    int count = (int)cmd.ExecuteScalar();
+                    con.Close();
+                    return count > 0;
+                }
+            }
+        }
         private async void BtnSignIn_Click(object sender, EventArgs e)
         {
             int result = 0;
@@ -66,8 +101,25 @@ namespace FPomoApp
             string query = "INSERT INTO TblUsers (UserName, Password, Mail, Phone) VALUES (@name, @pass, @mail, @phone)";
 
             result += CheckValues(username, password1, password2, email, phone);
-            
-            if(result == 1)
+
+            // Hangi bilgi var, sadece onu değiştir
+            if (CheckIfUsernameExists(username))
+            {
+                LblStatus.Text = "Bu kullanıcı adı zaten var.";
+                result -= 1;
+            }
+            else if (CheckIfEmailExists(email))
+            {
+                LblStatus.Text = "Bu e-posta zaten var.";
+                result -= 1;
+            }
+            else if (CheckIfPhoneExists(phone))
+            {
+                LblStatus.Text = "Bu telefon numarası zaten var.";
+                result -= 1;
+            }
+
+            if (result == 1)
             {
                 var emailPanel = new EmailConfirmationPanel(mainForm, email);
                 mainForm.LoadUserControl(emailPanel); // eposta onay ekranı
@@ -92,7 +144,7 @@ namespace FPomoApp
                             result += cmd.ExecuteNonQuery(); // Sorguyu çalıştır
                             con.Close(); // Bağlantıyı kapat
 
-                            LblSucces.Text = "Kayıt başarıyla tamamlandı.";
+                            LblStatus.Text = "Kayıt başarıyla tamamlandı.";
                             TxtUsername.Text = "";
                             TxtPassword.Text = "";
                             TxtPassword2.Text = "";
@@ -106,10 +158,6 @@ namespace FPomoApp
                         }
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Kayıt olma işlemi başarısız oldu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
