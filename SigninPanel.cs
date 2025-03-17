@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace FPomoApp
 {
@@ -32,8 +34,29 @@ namespace FPomoApp
             TxtUsername.Focus();
         }
 
-        private void BtnSignIn_Click(object sender, EventArgs e)
+        private int CheckValues(string name, string pass1, string pass2, string mail, string phone)
         {
+            if (name == "" || pass1 == "" || pass2 == "" || mail == "" || phone == "")
+            {
+                MessageBox.Show("Girilen bilgiler eksiktir.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            else if (!EmailValidator.IsValidEmail(mail))
+            {
+                MessageBox.Show("Geçersiz e-posta adresi girdiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            else if (pass1 != pass2)
+            {
+                MessageBox.Show("Girilen şifreler eşleşmiyor.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+            return 1;
+        }
+
+        private async void BtnSignIn_Click(object sender, EventArgs e)
+        {
+            int result = 0;
             string connectionString = "Server=localhost; Database=FPomoDB; Integrated Security=True;";
             string username = TxtUsername.Text;
             string password1 = TxtPassword.Text;
@@ -42,37 +65,33 @@ namespace FPomoApp
             string phone = MTxtPhone.Text;
             string query = "INSERT INTO TblUsers (UserName, Password, Mail, Phone) VALUES (@name, @pass, @mail, @phone)";
 
-            if (username == "" || password1 == "" || password2 == "" || email == "" || phone == "")
+            result += CheckValues(username, password1, password2, email, phone);
+            
+            if(result == 1)
             {
-                MessageBox.Show("Girilen bilgiler eksiktir.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (!EmailValidator.IsValidEmail(email))
-            {
-                MessageBox.Show("Geçersiz e-posta adresi girdiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            if (password1 != password2)
-            {
-                MessageBox.Show("Girilen şifreler eşleşmiyor.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var emailPanel = new EmailConfirmationPanel(mainForm, email);
+                mainForm.LoadUserControl(emailPanel); // eposta onay ekranı
+                result += await emailPanel.WaitForEmailConfirmation();
             }
 
-            using (SqlConnection con = new SqlConnection(connectionString))
+            if (result == 2)
             {
-                using (SqlCommand cmd = new SqlCommand(query, con))
+                using (SqlConnection con = new SqlConnection(connectionString))
                 {
-                    // Parametreleri tanımla
-                    cmd.Parameters.AddWithValue("@name", username);
-                    cmd.Parameters.AddWithValue("@pass", password1);
-                    cmd.Parameters.AddWithValue("@mail", email);
-                    cmd.Parameters.AddWithValue("@phone", phone);
-
-                    try
+                    using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        con.Open(); // Bağlantıyı aç
-                        int result = cmd.ExecuteNonQuery(); // Sorguyu çalıştır
-                        con.Close(); // Bağlantıyı kapat
+                        // Parametreleri tanımla
+                        cmd.Parameters.AddWithValue("@name", username);
+                        cmd.Parameters.AddWithValue("@pass", password1);
+                        cmd.Parameters.AddWithValue("@mail", email);
+                        cmd.Parameters.AddWithValue("@phone", phone);
 
-                        if (result > 0)
+                        try
                         {
+                            con.Open(); // Bağlantıyı aç
+                            result += cmd.ExecuteNonQuery(); // Sorguyu çalıştır
+                            con.Close(); // Bağlantıyı kapat
+
                             LblSucces.Text = "Kayıt başarıyla tamamlandı.";
                             TxtUsername.Text = "";
                             TxtPassword.Text = "";
@@ -81,16 +100,16 @@ namespace FPomoApp
                             MTxtPhone.Text = "";
                             TxtUsername.Focus();
                         }
-                        else
+                        catch (Exception ex)
                         {
-                            MessageBox.Show("Kayıt eklenemedi.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Hata: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Hata: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Kayıt olma işlemi başarısız oldu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

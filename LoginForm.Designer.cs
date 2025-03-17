@@ -129,7 +129,7 @@
             Margin = new Padding(4);
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Giriş Ekranı";
+            Text = "Giriş - FPOMO";
             Load += LoginForm_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PBoxLogo).EndInit();
