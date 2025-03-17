@@ -45,5 +45,15 @@ namespace FPomoApp
                 PBoxViewPass.Image = Properties.Resources.eyeclose; // Görüntü değişimi
             }
         }
+
+        private void LinkLblForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            mainForm.LoadUserControl(new RefPasswordPanel(mainForm));
+        }
+
+        private void LoginPanel_Load(object sender, EventArgs e)
+        {
+            TxtUsername.Focus();
+        }
     }
 }

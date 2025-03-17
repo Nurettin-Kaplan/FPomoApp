@@ -13,6 +13,9 @@
     <Compile Update="LoginPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="RefPasswordPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="SigninPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>

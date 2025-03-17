@@ -99,6 +99,7 @@
             // 
             groupBox5.Controls.Add(PBoxViewPass2);
             groupBox5.Controls.Add(TxtPassword2);
+            groupBox5.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox5.ForeColor = Color.DarkGray;
             groupBox5.Location = new Point(150, 241);
             groupBox5.Name = "groupBox5";
@@ -135,6 +136,7 @@
             // 
             groupBox2.Controls.Add(PBoxViewPass);
             groupBox2.Controls.Add(TxtPassword);
+            groupBox2.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.ForeColor = Color.DarkGray;
             groupBox2.Location = new Point(150, 145);
             groupBox2.Name = "groupBox2";
@@ -170,6 +172,7 @@
             // groupBox4
             // 
             groupBox4.Controls.Add(MTxtPhone);
+            groupBox4.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox4.ForeColor = Color.DarkGray;
             groupBox4.Location = new Point(150, 432);
             groupBox4.Name = "groupBox4";
@@ -193,6 +196,7 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(TxtEmail);
+            groupBox3.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox3.ForeColor = Color.DarkGray;
             groupBox3.Location = new Point(150, 337);
             groupBox3.Name = "groupBox3";
@@ -215,6 +219,7 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(TxtUsername);
+            groupBox1.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.ForeColor = Color.DarkGray;
             groupBox1.Location = new Point(150, 52);
             groupBox1.Name = "groupBox1";

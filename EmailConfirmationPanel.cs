@@ -15,7 +15,7 @@ namespace FPomoApp
     public partial class EmailConfirmationPanel : UserControl
     {
         private LoginForm mainForm;
-        string email = "";
+        private string email = "";
         private int remainingTime = 120; // 2 dakika = 120 saniye
         private string code = "";
         private TaskCompletionSource<int> confirmationTask; // TaskCompletionSource ile bekleme kontrolü

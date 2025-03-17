@@ -47,14 +47,16 @@
             // 
             LinkLblForgotPass.ActiveLinkColor = Color.White;
             LinkLblForgotPass.AutoSize = true;
+            LinkLblForgotPass.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             LinkLblForgotPass.LinkColor = Color.Gray;
             LinkLblForgotPass.Location = new Point(154, 465);
             LinkLblForgotPass.Name = "LinkLblForgotPass";
-            LinkLblForgotPass.Size = new Size(159, 20);
+            LinkLblForgotPass.Size = new Size(192, 25);
             LinkLblForgotPass.TabIndex = 3;
             LinkLblForgotPass.TabStop = true;
             LinkLblForgotPass.Text = "Şifrenizi mi unuttunuz?";
             LinkLblForgotPass.VisitedLinkColor = Color.Silver;
+            LinkLblForgotPass.LinkClicked += LinkLblForgotPass_LinkClicked;
             // 
             // BtnSignIn
             // 
@@ -114,6 +116,7 @@
             // 
             groupBox2.Controls.Add(PBoxViewPass);
             groupBox2.Controls.Add(TxtPassword);
+            groupBox2.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.ForeColor = Color.DarkGray;
             groupBox2.Location = new Point(154, 374);
             groupBox2.Name = "groupBox2";
@@ -149,6 +152,7 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(TxtUsername);
+            groupBox1.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.ForeColor = Color.DarkGray;
             groupBox1.Location = new Point(154, 267);
             groupBox1.Name = "groupBox1";
@@ -181,6 +185,7 @@
             Controls.Add(groupBox1);
             Name = "LoginPanel";
             Size = new Size(608, 647);
+            Load += LoginPanel_Load;
             ((System.ComponentModel.ISupportInitialize)PBoxUser).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
