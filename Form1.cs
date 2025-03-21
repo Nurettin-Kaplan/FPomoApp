@@ -47,6 +47,18 @@ namespace FPomoApp
 
         private void App_Load(object sender, EventArgs e)
         {
+            if (SessionManager.IsLoggedIn())
+            {
+                MessageBox.Show("Hoþ geldin, " + SessionManager.CurrentUser.UserName);
+            }
+            else
+            {
+                MessageBox.Show("Lütfen giriþ yapýn.");
+                this.Close();
+            }
+
+            
+
             // Örnek olarak butonlarý ekleyelim ve onlarýn resimlerini tanýmlayalým
             buttonPicture.Add(BtnTasks, (Properties.Resources.task2, Properties.Resources.task1));
             buttonPicture.Add(BtnWTask, (Properties.Resources.tasklist2, Properties.Resources.tasklist1));
@@ -63,6 +75,17 @@ namespace FPomoApp
                 btn.BackgroundImage = buttonPicture[btn].Item1; // Varsayýlan resim
                 btn.Tag = "first"; // Ýlk hali takip etmek için Tag ekledik
             }
+        }
+
+        private void BtnLogout_Click(object sender, EventArgs e)
+        {
+            SessionManager.Logout();
+            Properties.Settings.Default.SavedUserID = -1; // Kaydý sýfýrla
+            Properties.Settings.Default.Save();
+
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
         }
 
         private void LoadUserControl(UserControl uc)

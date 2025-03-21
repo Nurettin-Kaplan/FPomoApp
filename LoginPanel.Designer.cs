@@ -37,6 +37,9 @@
             TxtPassword = new TextBox();
             groupBox1 = new GroupBox();
             TxtUsername = new TextBox();
+            label1 = new Label();
+            LblStatus = new Label();
+            CHKRememberMe = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)PBoxUser).BeginInit();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PBoxViewPass).BeginInit();
@@ -49,12 +52,12 @@
             LinkLblForgotPass.AutoSize = true;
             LinkLblForgotPass.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             LinkLblForgotPass.LinkColor = Color.Gray;
-            LinkLblForgotPass.Location = new Point(154, 465);
+            LinkLblForgotPass.Location = new Point(313, 468);
             LinkLblForgotPass.Name = "LinkLblForgotPass";
-            LinkLblForgotPass.Size = new Size(192, 25);
+            LinkLblForgotPass.Size = new Size(143, 25);
             LinkLblForgotPass.TabIndex = 3;
             LinkLblForgotPass.TabStop = true;
-            LinkLblForgotPass.Text = "Şifrenizi mi unuttunuz?";
+            LinkLblForgotPass.Text = "Şifremi Unuttum";
             LinkLblForgotPass.VisitedLinkColor = Color.Silver;
             LinkLblForgotPass.LinkClicked += LinkLblForgotPass_LinkClicked;
             // 
@@ -70,7 +73,7 @@
             BtnSignIn.ForeColor = Color.Transparent;
             BtnSignIn.Image = Properties.Resources.user_add_fill;
             BtnSignIn.ImageAlign = ContentAlignment.MiddleRight;
-            BtnSignIn.Location = new Point(154, 517);
+            BtnSignIn.Location = new Point(154, 514);
             BtnSignIn.Name = "BtnSignIn";
             BtnSignIn.RightToLeft = RightToLeft.Yes;
             BtnSignIn.Size = new Size(114, 52);
@@ -92,7 +95,7 @@
             BtnLogin.ForeColor = Color.Transparent;
             BtnLogin.Image = Properties.Resources.loginbox;
             BtnLogin.ImageAlign = ContentAlignment.MiddleRight;
-            BtnLogin.Location = new Point(348, 517);
+            BtnLogin.Location = new Point(348, 514);
             BtnLogin.Name = "BtnLogin";
             BtnLogin.RightToLeft = RightToLeft.Yes;
             BtnLogin.Size = new Size(114, 52);
@@ -172,11 +175,48 @@
             TxtUsername.Size = new Size(254, 27);
             TxtUsername.TabIndex = 1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(170, 584);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 28);
+            label1.TabIndex = 24;
+            // 
+            // LblStatus
+            // 
+            LblStatus.AutoSize = true;
+            LblStatus.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            LblStatus.ForeColor = Color.Red;
+            LblStatus.Location = new Point(164, 584);
+            LblStatus.Name = "LblStatus";
+            LblStatus.Size = new Size(0, 28);
+            LblStatus.TabIndex = 23;
+            // 
+            // CHKRememberMe
+            // 
+            CHKRememberMe.AutoSize = true;
+            CHKRememberMe.FlatAppearance.BorderSize = 0;
+            CHKRememberMe.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            CHKRememberMe.ForeColor = Color.Gray;
+            CHKRememberMe.Location = new Point(164, 464);
+            CHKRememberMe.Name = "CHKRememberMe";
+            CHKRememberMe.Size = new Size(134, 32);
+            CHKRememberMe.TabIndex = 25;
+            CHKRememberMe.Text = "Beni Hatırla";
+            CHKRememberMe.UseVisualStyleBackColor = true;
+            CHKRememberMe.CheckedChanged += CHKRememberMe_CheckedChanged;
+            // 
             // LoginPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
+            Controls.Add(CHKRememberMe);
+            Controls.Add(label1);
+            Controls.Add(LblStatus);
             Controls.Add(LinkLblForgotPass);
             Controls.Add(BtnSignIn);
             Controls.Add(BtnLogin);
@@ -207,5 +247,8 @@
         private GroupBox groupBox1;
         private TextBox TxtUsername;
         private PictureBox PBoxViewPass;
+        private Label label1;
+        private Label LblStatus;
+        private CheckBox CHKRememberMe;
     }
 }
