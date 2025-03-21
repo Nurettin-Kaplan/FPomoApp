@@ -34,5 +34,17 @@ namespace FPomoApp.Properties {
                 this["SavedUserID"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool RememberMe {
+            get {
+                return ((bool)(this["RememberMe"]));
+            }
+            set {
+                this["RememberMe"] = value;
+            }
+        }
     }
 }

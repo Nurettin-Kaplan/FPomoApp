@@ -52,7 +52,7 @@
             LinkLblForgotPass.AutoSize = true;
             LinkLblForgotPass.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             LinkLblForgotPass.LinkColor = Color.Gray;
-            LinkLblForgotPass.Location = new Point(313, 468);
+            LinkLblForgotPass.Location = new Point(306, 476);
             LinkLblForgotPass.Name = "LinkLblForgotPass";
             LinkLblForgotPass.Size = new Size(143, 25);
             LinkLblForgotPass.TabIndex = 3;
@@ -73,7 +73,7 @@
             BtnSignIn.ForeColor = Color.Transparent;
             BtnSignIn.Image = Properties.Resources.user_add_fill;
             BtnSignIn.ImageAlign = ContentAlignment.MiddleRight;
-            BtnSignIn.Location = new Point(154, 514);
+            BtnSignIn.Location = new Point(147, 522);
             BtnSignIn.Name = "BtnSignIn";
             BtnSignIn.RightToLeft = RightToLeft.Yes;
             BtnSignIn.Size = new Size(114, 52);
@@ -95,7 +95,7 @@
             BtnLogin.ForeColor = Color.Transparent;
             BtnLogin.Image = Properties.Resources.loginbox;
             BtnLogin.ImageAlign = ContentAlignment.MiddleRight;
-            BtnLogin.Location = new Point(348, 514);
+            BtnLogin.Location = new Point(341, 522);
             BtnLogin.Name = "BtnLogin";
             BtnLogin.RightToLeft = RightToLeft.Yes;
             BtnLogin.Size = new Size(114, 52);
@@ -108,7 +108,7 @@
             // PBoxUser
             // 
             PBoxUser.Image = Properties.Resources.user;
-            PBoxUser.Location = new Point(207, 22);
+            PBoxUser.Location = new Point(200, 30);
             PBoxUser.Name = "PBoxUser";
             PBoxUser.Size = new Size(212, 239);
             PBoxUser.SizeMode = PictureBoxSizeMode.Zoom;
@@ -121,7 +121,7 @@
             groupBox2.Controls.Add(TxtPassword);
             groupBox2.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.ForeColor = Color.DarkGray;
-            groupBox2.Location = new Point(154, 374);
+            groupBox2.Location = new Point(147, 382);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(308, 77);
             groupBox2.TabIndex = 2;
@@ -157,7 +157,7 @@
             groupBox1.Controls.Add(TxtUsername);
             groupBox1.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.ForeColor = Color.DarkGray;
-            groupBox1.Location = new Point(154, 267);
+            groupBox1.Location = new Point(147, 275);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(308, 77);
             groupBox1.TabIndex = 1;
@@ -180,7 +180,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Red;
-            label1.Location = new Point(170, 584);
+            label1.Location = new Point(163, 592);
             label1.Name = "label1";
             label1.Size = new Size(0, 28);
             label1.TabIndex = 24;
@@ -190,7 +190,7 @@
             LblStatus.AutoSize = true;
             LblStatus.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             LblStatus.ForeColor = Color.Red;
-            LblStatus.Location = new Point(164, 584);
+            LblStatus.Location = new Point(157, 592);
             LblStatus.Name = "LblStatus";
             LblStatus.Size = new Size(0, 28);
             LblStatus.TabIndex = 23;
@@ -201,7 +201,7 @@
             CHKRememberMe.FlatAppearance.BorderSize = 0;
             CHKRememberMe.Font = new Font("Yu Gothic UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             CHKRememberMe.ForeColor = Color.Gray;
-            CHKRememberMe.Location = new Point(164, 464);
+            CHKRememberMe.Location = new Point(157, 472);
             CHKRememberMe.Name = "CHKRememberMe";
             CHKRememberMe.Size = new Size(134, 32);
             CHKRememberMe.TabIndex = 25;
@@ -224,7 +224,7 @@
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "LoginPanel";
-            Size = new Size(608, 647);
+            Size = new Size(607, 646);
             Load += LoginPanel_Load;
             ((System.ComponentModel.ISupportInitialize)PBoxUser).EndInit();
             groupBox2.ResumeLayout(false);

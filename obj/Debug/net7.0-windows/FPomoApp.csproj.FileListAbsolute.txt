@@ -31,3 +31,4 @@ C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.EmailConfirmationPanel.resources
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.RefPasswordPanel.resources
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.ChangePassword.resources
 C:\FPomoApp\bin\Debug\net7.0-windows\FPomoApp.dll.config
+C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.SettingsPanel.resources

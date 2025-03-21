@@ -8,8 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace FPomoApp
 {
@@ -22,7 +20,6 @@ namespace FPomoApp
             InitializeComponent();
             mainForm = form;
         }
-
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             User user = ValidateUser(TxtUsername.Text, TxtPassword.Text); // Kullanıcıyı doğrula
@@ -33,13 +30,12 @@ namespace FPomoApp
 
                 if (CHKRememberMe.Checked)
                 {
+                    Properties.Settings.Default.RememberMe = CHKRememberMe.Checked;
                     Properties.Settings.Default.SavedUserID = user.UserID; // Kullanıcı ID kaydet
                     Properties.Settings.Default.Save();
                 }
 
-                App app = new App();
-                app.Show();
-                this.Hide();
+                mainForm.Close();
             }
             else
             {
@@ -59,37 +55,6 @@ namespace FPomoApp
             {
                 cmd.Parameters.AddWithValue("@username", username);
                 cmd.Parameters.AddWithValue("@password", password);  // Burada şifreyi hashleyerek saklamak daha güvenli olur!
-
-                con.Open();
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    if (reader.Read())
-                    {
-                        return new User
-                        {
-                            UserID = reader.GetInt32(0),
-                            UserName = reader.GetString(1),
-                            Password = reader.GetString(2),
-                            Mail = reader.GetString(3),
-                            Phone = reader.GetString(4),
-                            CreatedAt = reader.GetDateTime(5),
-                            Wallet = reader.GetString(6),
-                        };
-                    }
-                }
-            }
-            return null;  // Kullanıcı bulunamazsa null döndür
-        }
-
-        private User GetUserByID(int userID)
-        {
-            string connectionString = "Server=localhost; Database=FPomoDB; Integrated Security=True;";
-            string query = "SELECT UserID, UserName, Email, Phone FROM TblUsers WHERE UserID = @userID";
-
-            using (SqlConnection con = new SqlConnection(connectionString))
-            using (SqlCommand cmd = new SqlCommand(query, con))
-            {
-                cmd.Parameters.AddWithValue("@userID", userID);
 
                 con.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -139,21 +104,6 @@ namespace FPomoApp
 
         private void LoginPanel_Load(object sender, EventArgs e)
         {
-            int savedUserID = Properties.Settings.Default.SavedUserID;
-
-            if (savedUserID != -1) // Eğer UserID kayıtlıysa
-            {
-                User user = GetUserByID(savedUserID); // Kullanıcı bilgilerini veritabanından al
-
-                if (user != null)
-                {
-                    SessionManager.Login(user);
-                    App app = new App();
-                    app.Show();
-                    this.Hide();
-                }
-            }
-
             TxtUsername.Focus();
         }
 

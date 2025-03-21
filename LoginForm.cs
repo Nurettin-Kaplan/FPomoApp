@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace FPomoApp
         public LoginForm()
         {
             InitializeComponent();
+            this.AutoScaleMode = AutoScaleMode.Dpi;
             LoadUserControl(new LoginPanel(this));
         }
 
@@ -51,12 +53,53 @@ namespace FPomoApp
         {
             Application.Exit(); // Uygulamanın kapanmasını sağlar
         }
+        private User GetUserByID(int userID)
+        {
+            string connectionString = "Server=localhost; Database=FPomoDB; Integrated Security=True;";
+            string query = "SELECT * FROM TblUsers WHERE UserID = @userID";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                cmd.Parameters.AddWithValue("@userID", userID);
+
+                con.Open();
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new User
+                        {
+                            UserID = reader.GetInt32(0),
+                            UserName = reader.GetString(1),
+                            Password = reader.GetString(2),
+                            Mail = reader.GetString(3),
+                            Phone = reader.GetString(4),
+                            CreatedAt = reader.GetDateTime(5),
+                            Wallet = reader.GetString(6),
+                        };
+                    }
+                }
+            }
+            return null;  // Kullanıcı bulunamazsa null döndür
+        }
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            //
-        }
+            int savedUserID = Properties.Settings.Default.SavedUserID;
 
+            if (savedUserID != -1) // Eğer UserID kayıtlıysa
+            {
+                User user = GetUserByID(savedUserID); // Kullanıcı bilgilerini veritabanından al
+
+                if (user != null)
+                {
+                    SessionManager.Login(user);
+                    this.Close();
+                }
+            }
+
+        }
         public void LoadUserControl(UserControl uc)
         {
             PanelContainer2.Controls.Clear(); // Önceki UserControl’ü temizle

@@ -8,10 +8,31 @@ namespace FPomoApp
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new LoginForm());
+
+            // Oturum kontrolü yap
+            if (SessionManager.IsLoggedIn())
+            {
+                // Kullanýcý zaten giriþ yapmýþ, direkt olarak AppForm aç
+                Application.Run(new App());
+            }
+            else
+            {
+                // Kullanýcý giriþ yapmamýþ, LoginForm'u göster
+                LoginForm loginForm = new LoginForm();
+                loginForm.ShowDialog();  // ShowDialog() burada doðru tercih çünkü kullanýcý giriþ yapmadan baþka bir þey yapamaz
+
+                // LoginForm kapandýktan sonra, App formunu baþlat
+                if (SessionManager.IsLoggedIn())  // Giriþ baþarýlýysa
+                {
+                    Application.Run(new App());
+                }
+                else
+                {
+                    // Giriþ baþarýsýzsa, uygulama kapatýlabilir
+                    Application.Exit();
+                }
+            }
         }
     }
 }

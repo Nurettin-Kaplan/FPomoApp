@@ -19,10 +19,13 @@
     <Compile Update="RefPasswordPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="SettingsPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="SigninPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Tasks.cs">
+    <Compile Update="WTasksPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
