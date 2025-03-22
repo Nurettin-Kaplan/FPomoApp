@@ -19,6 +19,7 @@ namespace FPomoApp
         private int remainingTime = 120; // 2 dakika = 120 saniye
         private string code = "";
         private TaskCompletionSource<int> confirmationTask; // TaskCompletionSource ile bekleme kontrolü
+        private int tryCount = 0;
 
         public EmailConfirmationPanel(LoginForm form, string uemail)
         {
@@ -93,7 +94,30 @@ namespace FPomoApp
             else
             {
                 confirmationTask.TrySetResult(0);  // Task tamamlanmadıysa 0 olarak ayarla
+                this.Dispose(); // UserControl'leri temizle
             }
+        }
+
+        private void LinkLblForgotMail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            tryCount++;
+            code = GenerateVerificationCode();
+            SendEmail(email, code);
+            remainingTime = 120; // Süreyi sıfırla
+            LblCountdown.Text = "02:00"; // Label'ı sıfırla
+            timer1.Enabled = true; // Timer'ı başlat
+            LblStatus.Text = "Yeni kod gönderildi. Kontrol ediniz.";
+            BtnBack.Visible = true;
+
+            if(tryCount > 2)
+            {
+                MessageBox.Show("Lütfen email adresinizin doğruluğunu kontrol edip tekrar deneyiniz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            mainForm.LoadUserControl(new LoginPanel(mainForm));
         }
     }
 }

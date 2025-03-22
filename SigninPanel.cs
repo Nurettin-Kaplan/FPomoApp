@@ -24,7 +24,7 @@ namespace FPomoApp
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            mainForm.LoadUserControl(new LoginPanel(mainForm), "LoginPanel");
+            mainForm.LoadUserControl(new LoginPanel(mainForm));
         }
 
         protected override void OnLoad(EventArgs e)
@@ -118,7 +118,7 @@ namespace FPomoApp
             if (result == 1)
             {
                 var emailPanel = new EmailConfirmationPanel(mainForm, TxtEmail.Text);
-                mainForm.LoadUserControl(emailPanel, "EmailConfirmationPanel");
+                mainForm.LoadUserControl(emailPanel);
                 result += await emailPanel.WaitForEmailConfirmation();
 
                 if (result == 2)
@@ -141,10 +141,8 @@ namespace FPomoApp
 
                                 // Önce loginPanel oluşturulmalı
                                 loginPanel = new LoginPanel(mainForm);
-                                loginPanel.ChangeLabelGreen();
-                                loginPanel.StatusText = "Kayıt olma işlemi tamamlandı.";
-
-                                mainForm.LoadUserControl(loginPanel, "LoginPanel");
+                                MessageBox.Show("Kayıt olma işlemi tamamlandı.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                mainForm.LoadUserControl(loginPanel);
                             }
                             catch (Exception ex)
                             {
@@ -155,9 +153,8 @@ namespace FPomoApp
                 }
                 else
                 {
-                    loginPanel.ChangeLabelRed();
-                    LblStatus.Text = "Email doğrulama işlemi başarısız oldu.";
-                    mainForm.LoadUserControl(new SigninPanel(mainForm), "SigninPanel");
+                    MessageBox.Show("Email doğrulama işlemi başarısız oldu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    mainForm.LoadUserControl(new SigninPanel(mainForm));
                 }
             }
         }
@@ -189,6 +186,6 @@ namespace FPomoApp
             }
         }
 
-        
+
     }
 }

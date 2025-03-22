@@ -17,12 +17,10 @@ namespace FPomoApp
         {
             InitializeComponent();
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            LoadUserControl(new LoginPanel(this), "LoginPanel");
+            LoadUserControl(new LoginPanel(this));
         }
 
         private Point _mouseDownLocation;
-        private Dictionary<string, UserControl> panels = new Dictionary<string, UserControl>();
-
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             _mouseDownLocation = e.Location; // Fare tıklama konumunu kaydet
@@ -101,18 +99,11 @@ namespace FPomoApp
             }
 
         }
-        public void LoadUserControl(UserControl panel, string key)
+        public void LoadUserControl(UserControl panel)
         {
             PanelContainer2.Controls.Clear(); // Önceki paneli temizle
-
-            if (!panels.ContainsKey(key))
-            {
-                panels[key] = panel; // Yeni panel ekle
-                panels[key].Dock = DockStyle.Fill; // Panelin taşmasını önle
-            }
-
-            PanelContainer2.Controls.Add(panels[key]);
-            panels[key].BringToFront();
+            panel.Dock = DockStyle.Fill;
+            PanelContainer2.Controls.Add(panel);
         }
 
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)

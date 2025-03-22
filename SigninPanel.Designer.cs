@@ -56,13 +56,13 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Yu Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(224, 25);
+            label1.Location = new Point(162, 27);
             label1.Name = "label1";
-            label1.Size = new Size(152, 41);
+            label1.Size = new Size(264, 39);
             label1.TabIndex = 23;
-            label1.Text = "Yeni Kayıt";
+            label1.Text = "Hadi başlayalım..";
             // 
             // LblStatus
             // 

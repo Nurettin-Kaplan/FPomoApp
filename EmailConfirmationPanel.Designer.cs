@@ -35,6 +35,9 @@
             MTxtCode = new MaskedTextBox();
             BtnConfrim = new Button();
             label1 = new Label();
+            LinkLblForgotMail = new LinkLabel();
+            LblStatus = new Label();
+            BtnBack = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -88,7 +91,7 @@
             BtnConfrim.ForeColor = Color.Transparent;
             BtnConfrim.Image = Properties.Resources.mail;
             BtnConfrim.ImageAlign = ContentAlignment.MiddleRight;
-            BtnConfrim.Location = new Point(323, 514);
+            BtnConfrim.Location = new Point(335, 544);
             BtnConfrim.Name = "BtnConfrim";
             BtnConfrim.RightToLeft = RightToLeft.Yes;
             BtnConfrim.Size = new Size(114, 52);
@@ -101,19 +104,70 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Yu Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(171, 161);
+            label1.Location = new Point(12, 182);
             label1.Name = "label1";
-            label1.Size = new Size(254, 41);
+            label1.Size = new Size(576, 39);
             label1.TabIndex = 6;
-            label1.Text = "Email Doğrulama";
+            label1.Text = "Gelen kutundaki kodu yazabilir misin?";
+            // 
+            // LinkLblForgotMail
+            // 
+            LinkLblForgotMail.ActiveLinkColor = Color.White;
+            LinkLblForgotMail.AutoSize = true;
+            LinkLblForgotMail.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            LinkLblForgotMail.LinkColor = Color.Gray;
+            LinkLblForgotMail.Location = new Point(157, 498);
+            LinkLblForgotMail.Margin = new Padding(4, 0, 4, 0);
+            LinkLblForgotMail.Name = "LinkLblForgotMail";
+            LinkLblForgotMail.Size = new Size(114, 25);
+            LinkLblForgotMail.TabIndex = 8;
+            LinkLblForgotMail.TabStop = true;
+            LinkLblForgotMail.Text = "Kod Gelmedi";
+            LinkLblForgotMail.VisitedLinkColor = Color.Silver;
+            LinkLblForgotMail.LinkClicked += LinkLblForgotMail_LinkClicked;
+            // 
+            // LblStatus
+            // 
+            LblStatus.AutoSize = true;
+            LblStatus.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            LblStatus.ForeColor = Color.Red;
+            LblStatus.Location = new Point(157, 619);
+            LblStatus.Name = "LblStatus";
+            LblStatus.Size = new Size(0, 28);
+            LblStatus.TabIndex = 31;
+            // 
+            // BtnBack
+            // 
+            BtnBack.BackColor = Color.Black;
+            BtnBack.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnBack.FlatAppearance.BorderSize = 0;
+            BtnBack.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
+            BtnBack.FlatAppearance.MouseOverBackColor = Color.Gray;
+            BtnBack.FlatStyle = FlatStyle.Flat;
+            BtnBack.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnBack.ForeColor = Color.Transparent;
+            BtnBack.Image = Properties.Resources.back;
+            BtnBack.ImageAlign = ContentAlignment.MiddleRight;
+            BtnBack.Location = new Point(141, 544);
+            BtnBack.Name = "BtnBack";
+            BtnBack.RightToLeft = RightToLeft.Yes;
+            BtnBack.Size = new Size(114, 52);
+            BtnBack.TabIndex = 32;
+            BtnBack.Text = "Geri";
+            BtnBack.UseVisualStyleBackColor = false;
+            BtnBack.Visible = false;
+            BtnBack.Click += BtnBack_Click;
             // 
             // EmailConfirmationPanel
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
+            Controls.Add(BtnBack);
+            Controls.Add(LblStatus);
+            Controls.Add(LinkLblForgotMail);
             Controls.Add(label1);
             Controls.Add(BtnConfrim);
             Controls.Add(groupBox1);
@@ -136,5 +190,8 @@
         private Button BtnConfrim;
         private MaskedTextBox MTxtCode;
         private Label label1;
+        private LinkLabel LinkLblForgotMail;
+        private Label LblStatus;
+        private Button BtnBack;
     }
 }

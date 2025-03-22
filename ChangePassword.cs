@@ -64,9 +64,9 @@ namespace FPomoApp
             else
             {
                 UpdatePassword();
-                loginPanel.ChangeLabelGreen();
-                loginPanel.StatusText = "Şifreniz başarıyla değiştirildi.";
-                mainForm.LoadUserControl(new LoginPanel(mainForm), "LoginPanel");
+                loginPanel = new LoginPanel(mainForm);
+                MessageBox.Show("Şifreniz başarıyla değiştirildi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                mainForm.LoadUserControl(loginPanel);
             }
         }
 
@@ -106,7 +106,7 @@ namespace FPomoApp
             Properties.Settings.Default.SavedUserID = -1; // Kullanıcı ID sil
             Properties.Settings.Default.Save();
 
-            mainForm.LoadUserControl(new LoginPanel(mainForm), "LoginPanel");
+            mainForm.LoadUserControl(new LoginPanel(mainForm));
         }
     }
 }

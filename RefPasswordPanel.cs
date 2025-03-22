@@ -22,7 +22,7 @@ namespace FPomoApp
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            mainForm.LoadUserControl(new LoginPanel(mainForm), "LoginPanel");
+            mainForm.LoadUserControl(new LoginPanel(mainForm));
         }
 
         private void RefPasswordPanel_Load(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace FPomoApp
                             else
                             {
                                 var emailPanel = new EmailConfirmationPanel(mainForm, TxtEmail.Text);
-                                mainForm.LoadUserControl(emailPanel, "EmailConfirmationPanel");
+                                mainForm.LoadUserControl(emailPanel);
                                 result += await emailPanel.WaitForEmailConfirmation();
 
                                 if (result == 2 && reader.Read())
@@ -96,12 +96,12 @@ namespace FPomoApp
                                     Properties.Settings.Default.SavedUserID = user.UserID; // Kullanıcı ID kaydet
                                     Properties.Settings.Default.Save();
 
-                                    mainForm.LoadUserControl(new ChangePassword(mainForm), "ChangePassword"); // ŞİFRE YENİLEME PANELİNİ AÇ
+                                    mainForm.LoadUserControl(new ChangePassword(mainForm)); // ŞİFRE YENİLEME PANELİNİ AÇ
                                 }
                                 else
                                 {
-                                    mainForm.LoadUserControl(new RefPasswordPanel(mainForm), "RefPasswordPanel");
-                                    LblStatus.Text = "Email doğrulama işlemi başarısız oldu.";
+                                    MessageBox.Show("Email doğrulama işlemi başarısız oldu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    mainForm.LoadUserControl(new RefPasswordPanel(mainForm));
                                 }
                             }
                         }

@@ -174,13 +174,13 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Yu Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(181, 183);
+            label1.Location = new Point(38, 171);
             label1.Name = "label1";
-            label1.Size = new Size(243, 41);
+            label1.Size = new Size(527, 39);
             label1.TabIndex = 16;
-            label1.Text = "Şifre Değiştirme";
+            label1.Text = "Şimdi yeni şifreni belirleyebilirsin..";
             // 
             // ChangePassword
             // 

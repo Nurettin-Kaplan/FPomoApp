@@ -180,13 +180,13 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Yu Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(168, 128);
+            label2.Location = new Point(79, 120);
             label2.Name = "label2";
-            label2.Size = new Size(264, 41);
+            label2.Size = new Size(441, 39);
             label2.TabIndex = 23;
-            label2.Text = "Hesap Doğrulama";
+            label2.Text = "Önce hesabını doğrulayalım..";
             // 
             // RefPasswordPanel
             // 
