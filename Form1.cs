@@ -10,6 +10,7 @@ namespace FPomoApp
             this.AutoScaleMode = AutoScaleMode.Dpi;
         }
 
+        private int speed = 4; // Hareket hýzý
         private Point _mouseDownLocation;
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -58,6 +59,9 @@ namespace FPomoApp
                 this.Close();
             }
 
+            timer1.Interval = 20; // Hýz ayarý (20 ms)
+            timer1.Start();
+
             // Örnek olarak butonlarý ekleyelim ve onlarýn resimlerini tanýmlayalým
             buttonPicture.Add(BtnTasks, (Properties.Resources.task2, Properties.Resources.task1));
             buttonPicture.Add(BtnWTask, (Properties.Resources.tasklist2, Properties.Resources.tasklist1));
@@ -98,6 +102,7 @@ namespace FPomoApp
             clickedButton.BackgroundImage = buttonPicture[clickedButton].Item2; // Ýkinci resme geç
             clickedButton.Tag = "second";
 
+            LoadUserControl(new CTasksPanel());
         }
 
         private void BtnWTask_Click(object sender, EventArgs e)
@@ -132,6 +137,8 @@ namespace FPomoApp
             // Þimdi sadece týklanan butonun resmini deðiþtir
             clickedButton.BackgroundImage = buttonPicture[clickedButton].Item2; // Ýkinci resme geç
             clickedButton.Tag = "second";
+
+            LoadUserControl(new TimerPanel());
         }
 
         private void BtnStatics_Click(object sender, EventArgs e)
@@ -148,6 +155,9 @@ namespace FPomoApp
             // Þimdi sadece týklanan butonun resmini deðiþtir
             clickedButton.BackgroundImage = buttonPicture[clickedButton].Item2; // Ýkinci resme geç
             clickedButton.Tag = "second";
+
+            LoadUserControl(new StatisticsPanel());
+
         }
 
         private void BtnWallet_Click(object sender, EventArgs e)
@@ -164,6 +174,8 @@ namespace FPomoApp
             // Þimdi sadece týklanan butonun resmini deðiþtir
             clickedButton.BackgroundImage = buttonPicture[clickedButton].Item2; // Ýkinci resme geç
             clickedButton.Tag = "second";
+
+            LoadUserControl(new ShopPanel());
         }
 
         private void BtnSettings_Click(object sender, EventArgs e)
@@ -198,6 +210,18 @@ namespace FPomoApp
             // Þimdi sadece týklanan butonun resmini deðiþtir
             clickedButton.BackgroundImage = buttonPicture[clickedButton].Item2; // Ýkinci resme geç
             clickedButton.Tag = "second";
+
+            LoadUserControl(new InfoPanel());
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            LblWelcome.Left -= speed; // Label'i saða kaydýr
+
+            if (LblWelcome.Right < 0) // Ekrandan çýkýnca baþa al
+            {
+                LblWelcome.Left = this.Width; // Label'i saðdan baþlat
+            }
         }
     }
 }

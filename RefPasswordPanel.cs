@@ -96,7 +96,7 @@ namespace FPomoApp
                                     Properties.Settings.Default.SavedUserID = user.UserID; // Kullanıcı ID kaydet
                                     Properties.Settings.Default.Save();
 
-                                    mainForm.LoadUserControl(new ChangePassword(mainForm)); // ŞİFRE YENİLEME PANELİNİ AÇ
+                                    mainForm.LoadUserControl(new ChangePasswordPanel(mainForm)); // ŞİFRE YENİLEME PANELİNİ AÇ
                                 }
                                 else
                                 {

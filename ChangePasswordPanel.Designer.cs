@@ -1,6 +1,6 @@
 ﻿namespace FPomoApp
 {
-    partial class ChangePassword
+    partial class ChangePasswordPanel
     {
         /// <summary> 
         /// Required designer variable.

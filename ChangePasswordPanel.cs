@@ -12,12 +12,12 @@ using Microsoft.VisualBasic.ApplicationServices;
 
 namespace FPomoApp
 {
-    public partial class ChangePassword : UserControl
+    public partial class ChangePasswordPanel : UserControl
     {
         private LoginForm mainForm;
         private LoginPanel loginPanel;
 
-        public ChangePassword(LoginForm form)
+        public ChangePasswordPanel(LoginForm form)
         {
             InitializeComponent();
             mainForm = form;

@@ -1,6 +1,6 @@
 ﻿namespace FPomoApp
 {
-    partial class SettingsPanel
+    partial class StatisticsPanel
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,53 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            BtnLogout = new Button();
             LblHeader = new Label();
+            tableLayoutPanel1 = new TableLayoutPanel();
             SuspendLayout();
-            // 
-            // BtnLogout
-            // 
-            BtnLogout.BackColor = Color.Black;
-            BtnLogout.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnLogout.FlatAppearance.BorderSize = 0;
-            BtnLogout.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
-            BtnLogout.FlatAppearance.MouseOverBackColor = Color.Gray;
-            BtnLogout.FlatStyle = FlatStyle.Flat;
-            BtnLogout.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            BtnLogout.ForeColor = Color.Transparent;
-            BtnLogout.Image = Properties.Resources.logoutbox;
-            BtnLogout.ImageAlign = ContentAlignment.MiddleRight;
-            BtnLogout.Location = new Point(1170, 575);
-            BtnLogout.Name = "BtnLogout";
-            BtnLogout.RightToLeft = RightToLeft.Yes;
-            BtnLogout.Size = new Size(114, 52);
-            BtnLogout.TabIndex = 5;
-            BtnLogout.Text = "Çıkış Yap";
-            BtnLogout.TextAlign = ContentAlignment.MiddleLeft;
-            BtnLogout.UseVisualStyleBackColor = false;
-            BtnLogout.Click += BtnLogout_Click;
             // 
             // LblHeader
             // 
             LblHeader.AutoSize = true;
             LblHeader.Font = new Font("Yu Gothic", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             LblHeader.ForeColor = Color.White;
-            LblHeader.Location = new Point(48, 39);
+            LblHeader.Location = new Point(46, 44);
             LblHeader.Name = "LblHeader";
-            LblHeader.Size = new Size(175, 56);
-            LblHeader.TabIndex = 6;
-            LblHeader.Text = "Ayarlar";
+            LblHeader.Size = new Size(268, 56);
+            LblHeader.TabIndex = 7;
+            LblHeader.Text = "İstatistikler";
             // 
-            // SettingsPanel
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Location = new Point(46, 120);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new Size(1316, 544);
+            tableLayoutPanel1.TabIndex = 8;
+            // 
+            // StatisticsPanel
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
+            Controls.Add(tableLayoutPanel1);
             Controls.Add(LblHeader);
-            Controls.Add(BtnLogout);
             Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4);
-            Name = "SettingsPanel";
+            Name = "StatisticsPanel";
             Size = new Size(1419, 704);
             ResumeLayout(false);
             PerformLayout();
@@ -82,7 +73,7 @@
 
         #endregion
 
-        private Button BtnLogout;
         private Label LblHeader;
+        private TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(App));
             panel1 = new Panel();
             BtnDown = new Button();
@@ -42,9 +43,12 @@
             BtnWTask = new Button();
             BtnTasks = new Button();
             panelContainer = new Panel();
+            LblWelcome = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PBoxLogo).BeginInit();
+            panelContainer.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -248,11 +252,29 @@
             // 
             // panelContainer
             // 
+            panelContainer.Controls.Add(LblWelcome);
             panelContainer.Dock = DockStyle.Fill;
             panelContainer.Location = new Point(74, 32);
             panelContainer.Name = "panelContainer";
             panelContainer.Size = new Size(1419, 704);
             panelContainer.TabIndex = 2;
+            // 
+            // LblWelcome
+            // 
+            LblWelcome.AutoSize = true;
+            LblWelcome.Font = new Font("Yu Gothic", 72F, FontStyle.Bold, GraphicsUnit.Point);
+            LblWelcome.ForeColor = Color.FromArgb(64, 64, 64);
+            LblWelcome.Location = new Point(636, 260);
+            LblWelcome.Name = "LblWelcome";
+            LblWelcome.Size = new Size(1690, 155);
+            LblWelcome.TabIndex = 0;
+            LblWelcome.Text = "Hoş Geldiniz nurettinkaplan";
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 10;
+            timer1.Tick += timer1_Tick;
             // 
             // App
             // 
@@ -275,6 +297,8 @@
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PBoxLogo).EndInit();
+            panelContainer.ResumeLayout(false);
+            panelContainer.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -293,5 +317,7 @@
         private Button BtnSettings;
         private Button BtnInfo;
         private Panel panelContainer;
+        private Label LblWelcome;
+        private System.Windows.Forms.Timer timer1;
     }
 }

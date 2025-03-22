@@ -1,6 +1,6 @@
 ﻿namespace FPomoApp
 {
-    partial class SettingsPanel
+    partial class CTasksPanel
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,53 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            BtnLogout = new Button();
             LblHeader = new Label();
+            FLCTasksPanel = new FlowLayoutPanel();
             SuspendLayout();
-            // 
-            // BtnLogout
-            // 
-            BtnLogout.BackColor = Color.Black;
-            BtnLogout.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnLogout.FlatAppearance.BorderSize = 0;
-            BtnLogout.FlatAppearance.MouseDownBackColor = Color.FromArgb(64, 64, 64);
-            BtnLogout.FlatAppearance.MouseOverBackColor = Color.Gray;
-            BtnLogout.FlatStyle = FlatStyle.Flat;
-            BtnLogout.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            BtnLogout.ForeColor = Color.Transparent;
-            BtnLogout.Image = Properties.Resources.logoutbox;
-            BtnLogout.ImageAlign = ContentAlignment.MiddleRight;
-            BtnLogout.Location = new Point(1170, 575);
-            BtnLogout.Name = "BtnLogout";
-            BtnLogout.RightToLeft = RightToLeft.Yes;
-            BtnLogout.Size = new Size(114, 52);
-            BtnLogout.TabIndex = 5;
-            BtnLogout.Text = "Çıkış Yap";
-            BtnLogout.TextAlign = ContentAlignment.MiddleLeft;
-            BtnLogout.UseVisualStyleBackColor = false;
-            BtnLogout.Click += BtnLogout_Click;
             // 
             // LblHeader
             // 
             LblHeader.AutoSize = true;
             LblHeader.Font = new Font("Yu Gothic", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             LblHeader.ForeColor = Color.White;
-            LblHeader.Location = new Point(48, 39);
+            LblHeader.Location = new Point(47, 45);
             LblHeader.Name = "LblHeader";
-            LblHeader.Size = new Size(175, 56);
-            LblHeader.TabIndex = 6;
-            LblHeader.Text = "Ayarlar";
+            LblHeader.Size = new Size(494, 56);
+            LblHeader.TabIndex = 7;
+            LblHeader.Text = "Tamamlanan Görevler";
             // 
-            // SettingsPanel
+            // FLCTasksPanel
+            // 
+            FLCTasksPanel.Location = new Point(47, 113);
+            FLCTasksPanel.Name = "FLCTasksPanel";
+            FLCTasksPanel.Size = new Size(1325, 543);
+            FLCTasksPanel.TabIndex = 9;
+            // 
+            // CTasksPanel
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
+            Controls.Add(FLCTasksPanel);
             Controls.Add(LblHeader);
-            Controls.Add(BtnLogout);
             Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4);
-            Name = "SettingsPanel";
+            Name = "CTasksPanel";
             Size = new Size(1419, 704);
             ResumeLayout(false);
             PerformLayout();
@@ -82,7 +67,7 @@
 
         #endregion
 
-        private Button BtnLogout;
         private Label LblHeader;
+        private FlowLayoutPanel FLCTasksPanel;
     }
 }
