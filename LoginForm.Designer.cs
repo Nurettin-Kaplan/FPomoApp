@@ -48,7 +48,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(74, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(608, 32);
+            panel1.Size = new Size(600, 32);
             panel1.TabIndex = 49;
             panel1.MouseDown += panel1_MouseDown;
             panel1.MouseMove += panel1_MouseMove;
@@ -62,7 +62,7 @@
             BtnDown.FlatStyle = FlatStyle.Flat;
             BtnDown.Font = new Font("Adobe Gothic Std B", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             BtnDown.ForeColor = SystemColors.WindowFrame;
-            BtnDown.Location = new Point(516, 0);
+            BtnDown.Location = new Point(508, 0);
             BtnDown.Name = "BtnDown";
             BtnDown.Size = new Size(46, 32);
             BtnDown.TabIndex = 50;
@@ -77,7 +77,7 @@
             BtnClose.FlatAppearance.BorderSize = 0;
             BtnClose.FlatStyle = FlatStyle.Flat;
             BtnClose.ForeColor = SystemColors.WindowFrame;
-            BtnClose.Location = new Point(562, 0);
+            BtnClose.Location = new Point(554, 0);
             BtnClose.Name = "BtnClose";
             BtnClose.Size = new Size(46, 32);
             BtnClose.TabIndex = 51;
@@ -103,7 +103,7 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(74, 679);
+            panel2.Size = new Size(74, 748);
             panel2.TabIndex = 2;
             // 
             // PanelContainer2
@@ -111,7 +111,7 @@
             PanelContainer2.Dock = DockStyle.Fill;
             PanelContainer2.Location = new Point(74, 32);
             PanelContainer2.Name = "PanelContainer2";
-            PanelContainer2.Size = new Size(608, 647);
+            PanelContainer2.Size = new Size(600, 716);
             PanelContainer2.TabIndex = 3;
             // 
             // LoginForm
@@ -119,7 +119,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
-            ClientSize = new Size(682, 679);
+            ClientSize = new Size(674, 748);
             Controls.Add(PanelContainer2);
             Controls.Add(panel1);
             Controls.Add(panel2);
@@ -130,6 +130,7 @@
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Giriş - FPOMO";
+            FormClosing += LoginForm_FormClosing;
             Load += LoginForm_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)PBoxLogo).EndInit();

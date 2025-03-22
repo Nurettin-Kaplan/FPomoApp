@@ -14,3 +14,4 @@ https://remixicon.com/
 
 User Control Size: Width:1419, Height:704
 Header Location: 45 42
+User Control Size Login: Width:600, Height: 716

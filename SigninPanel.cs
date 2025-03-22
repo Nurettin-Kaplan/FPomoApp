@@ -14,6 +14,7 @@ namespace FPomoApp
     public partial class SigninPanel : UserControl
     {
         private LoginForm mainForm;
+        private LoginPanel loginPanel;
 
         public SigninPanel(LoginForm form)
         {
@@ -23,7 +24,7 @@ namespace FPomoApp
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            mainForm.LoadUserControl(new LoginPanel(mainForm));
+            mainForm.LoadUserControl(new LoginPanel(mainForm), "LoginPanel");
         }
 
         protected override void OnLoad(EventArgs e)
@@ -117,7 +118,7 @@ namespace FPomoApp
             if (result == 1)
             {
                 var emailPanel = new EmailConfirmationPanel(mainForm, TxtEmail.Text);
-                mainForm.LoadUserControl(emailPanel); // eposta onay ekranı
+                mainForm.LoadUserControl(emailPanel, "EmailConfirmationPanel");
                 result += await emailPanel.WaitForEmailConfirmation();
 
                 if (result == 2)
@@ -138,13 +139,12 @@ namespace FPomoApp
                                 result += cmd.ExecuteNonQuery(); // Sorguyu çalıştır
                                 con.Close(); // Bağlantıyı kapat
 
-                                LblStatus.Text = "Kayıt başarıyla tamamlandı.";
-                                TxtUsername.Clear();
-                                TxtPassword.Clear();
-                                TxtPassword2.Clear();
-                                TxtEmail.Clear();
-                                MTxtPhone.Clear();
-                                TxtUsername.Focus();
+                                // Önce loginPanel oluşturulmalı
+                                loginPanel = new LoginPanel(mainForm);
+                                loginPanel.ChangeLabelGreen();
+                                loginPanel.StatusText = "Kayıt olma işlemi tamamlandı.";
+
+                                mainForm.LoadUserControl(loginPanel, "LoginPanel");
                             }
                             catch (Exception ex)
                             {
@@ -155,8 +155,9 @@ namespace FPomoApp
                 }
                 else
                 {
-                    mainForm.LoadUserControl(new SigninPanel(mainForm));
-                    LblStatus.Text = "Email doğrulama başarısız.";
+                    loginPanel.ChangeLabelRed();
+                    LblStatus.Text = "Email doğrulama işlemi başarısız oldu.";
+                    mainForm.LoadUserControl(new SigninPanel(mainForm), "SigninPanel");
                 }
             }
         }
@@ -187,5 +188,7 @@ namespace FPomoApp
                 PBoxViewPass2.Image = Properties.Resources.eyeclose; // Görüntü değişimi
             }
         }
+
+        
     }
 }

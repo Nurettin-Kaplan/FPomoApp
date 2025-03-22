@@ -9,7 +9,6 @@ namespace FPomoApp
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-
             // Oturum kontrolü yap
             if (SessionManager.IsLoggedIn())
             {

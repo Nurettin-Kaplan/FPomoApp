@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace FPomoApp
 {
@@ -23,7 +22,7 @@ namespace FPomoApp
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            mainForm.LoadUserControl(new LoginPanel(mainForm));
+            mainForm.LoadUserControl(new LoginPanel(mainForm), "LoginPanel");
         }
 
         private void RefPasswordPanel_Load(object sender, EventArgs e)
@@ -52,10 +51,10 @@ namespace FPomoApp
             int result = 0;
             result += CheckValues(TxtUsername.Text, TxtEmail.Text, MTxtPhone.Text);
 
-            if(result == 1)
+            if (result == 1)
             {
                 string connectionString = "Server=localhost; Database=FPomoDB; Integrated Security=True;";
-                string query = "select UserName, Mail, Phone from TblUsers WHERE UserName=@username AND Mail=@email AND Phone=@phone";
+                string query = "select * from TblUsers WHERE UserName=@username AND Mail=@email AND Phone=@phone";
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     using (SqlCommand cmd = new SqlCommand(query, con))
@@ -78,18 +77,31 @@ namespace FPomoApp
                             else
                             {
                                 var emailPanel = new EmailConfirmationPanel(mainForm, TxtEmail.Text);
-                                mainForm.LoadUserControl(emailPanel); // eposta onay ekranı
+                                mainForm.LoadUserControl(emailPanel, "EmailConfirmationPanel");
                                 result += await emailPanel.WaitForEmailConfirmation();
-                                if (result == 2)
+
+                                if (result == 2 && reader.Read())
                                 {
-                                    // burada bir nevi hesaba giriş yapılmış olacak
-                                    // bu sebepten dolayı bir user classından bize bir nesne gerekebilir.
-                                    mainForm.LoadUserControl(new ChangePassword(mainForm)); // ŞİFRE YENİLEME PANELİNİ AÇ
+                                    User user = new User();
+
+                                    user.UserID = reader.GetInt32(0);
+                                    user.UserName = reader.GetString(1);
+                                    user.Password = reader.GetString(2);
+                                    user.Mail = reader.GetString(3);
+                                    user.Phone = reader.GetString(4);
+                                    user.CreatedAt = reader.GetDateTime(5);
+                                    user.Wallet = reader.GetString(6);
+
+                                    SessionManager.Login(user);  // Kullanıcıyı oturuma kaydet
+                                    Properties.Settings.Default.SavedUserID = user.UserID; // Kullanıcı ID kaydet
+                                    Properties.Settings.Default.Save();
+
+                                    mainForm.LoadUserControl(new ChangePassword(mainForm), "ChangePassword"); // ŞİFRE YENİLEME PANELİNİ AÇ
                                 }
                                 else
                                 {
-                                    mainForm.LoadUserControl(new RefPasswordPanel(mainForm));
-                                    LblStatus.Text = "Email doğrulama başarısız.";
+                                    mainForm.LoadUserControl(new RefPasswordPanel(mainForm), "RefPasswordPanel");
+                                    LblStatus.Text = "Email doğrulama işlemi başarısız oldu.";
                                 }
                             }
                         }

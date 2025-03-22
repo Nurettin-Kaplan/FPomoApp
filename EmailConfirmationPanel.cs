@@ -54,7 +54,7 @@ namespace FPomoApp
                 mail.From = new MailAddress("fpomoapp@gmail.com");
                 mail.To.Add(email);
                 mail.Subject = "E-posta Doğrulama Kodu";
-                mail.Body = "Doğrulama kodunuz: " + code;
+                mail.Body = "Doğrulama Kodunuz: " + code;
 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 smtp.Credentials = new NetworkCredential("fpomoapp@gmail.com", "ofcz zfau lfpi mwbo");

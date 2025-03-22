@@ -37,6 +37,7 @@
             BtnChangePass = new Button();
             LblStatus = new Label();
             BtnBack = new Button();
+            label1 = new Label();
             groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PBoxViewPass2).BeginInit();
             groupBox2.SuspendLayout();
@@ -49,7 +50,7 @@
             groupBox5.Controls.Add(TxtPassword2);
             groupBox5.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox5.ForeColor = Color.DarkGray;
-            groupBox5.Location = new Point(150, 333);
+            groupBox5.Location = new Point(141, 362);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(308, 77);
             groupBox5.TabIndex = 10;
@@ -86,7 +87,7 @@
             groupBox2.Controls.Add(TxtPassword);
             groupBox2.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.ForeColor = Color.DarkGray;
-            groupBox2.Location = new Point(150, 237);
+            groupBox2.Location = new Point(141, 266);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(308, 77);
             groupBox2.TabIndex = 9;
@@ -129,7 +130,7 @@
             BtnChangePass.ForeColor = Color.Transparent;
             BtnChangePass.Image = Properties.Resources.changePass;
             BtnChangePass.ImageAlign = ContentAlignment.MiddleRight;
-            BtnChangePass.Location = new Point(338, 439);
+            BtnChangePass.Location = new Point(329, 468);
             BtnChangePass.Name = "BtnChangePass";
             BtnChangePass.RightToLeft = RightToLeft.Yes;
             BtnChangePass.Size = new Size(114, 52);
@@ -144,7 +145,7 @@
             LblStatus.AutoSize = true;
             LblStatus.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             LblStatus.ForeColor = Color.Red;
-            LblStatus.Location = new Point(175, 507);
+            LblStatus.Location = new Point(166, 541);
             LblStatus.Name = "LblStatus";
             LblStatus.Size = new Size(0, 28);
             LblStatus.TabIndex = 14;
@@ -161,7 +162,7 @@
             BtnBack.ForeColor = Color.Transparent;
             BtnBack.Image = Properties.Resources.back;
             BtnBack.ImageAlign = ContentAlignment.MiddleRight;
-            BtnBack.Location = new Point(166, 439);
+            BtnBack.Location = new Point(157, 468);
             BtnBack.Name = "BtnBack";
             BtnBack.RightToLeft = RightToLeft.Yes;
             BtnBack.Size = new Size(114, 52);
@@ -170,11 +171,23 @@
             BtnBack.UseVisualStyleBackColor = false;
             BtnBack.Click += BtnBack_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(181, 183);
+            label1.Name = "label1";
+            label1.Size = new Size(243, 41);
+            label1.TabIndex = 16;
+            label1.Text = "Şifre Değiştirme";
+            // 
             // ChangePassword
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
+            Controls.Add(label1);
             Controls.Add(BtnBack);
             Controls.Add(LblStatus);
             Controls.Add(BtnChangePass);
@@ -183,7 +196,7 @@
             Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4);
             Name = "ChangePassword";
-            Size = new Size(608, 647);
+            Size = new Size(600, 716);
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PBoxViewPass2).EndInit();
@@ -205,5 +218,6 @@
         private Button BtnChangePass;
         private Label LblStatus;
         private Button BtnBack;
+        private Label label1;
     }
 }

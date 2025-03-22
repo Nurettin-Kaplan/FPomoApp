@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic.ApplicationServices;
 
 namespace FPomoApp
 {
     public partial class ChangePassword : UserControl
     {
         private LoginForm mainForm;
+        private LoginPanel loginPanel;
 
         public ChangePassword(LoginForm form)
         {
@@ -60,13 +63,51 @@ namespace FPomoApp
             }
             else
             {
-                // burada şifre yenileme işlemini yapılacak.
+                UpdatePassword();
+                loginPanel.ChangeLabelGreen();
+                loginPanel.StatusText = "Şifreniz başarıyla değiştirildi.";
+                mainForm.LoadUserControl(new LoginPanel(mainForm), "LoginPanel");
+            }
+        }
+
+        private void UpdatePassword()
+        {
+            string connectionString = "Server=localhost; Database=FPomoDB; Integrated Security=True;";
+            string query = "UPDATE TblUsers SET Password = @newPassword WHERE UserID = @userID";
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connectionString))
+                {
+                    // SqlCommand ile sorgu oluşturuluyor
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        // Parametreleri ekliyoruz
+                        cmd.Parameters.AddWithValue("@newPassword", TxtPassword.Text); // Yeni şifre
+                        cmd.Parameters.AddWithValue("@userID", Properties.Settings.Default.SavedUserID); // Kullanıcı ID'si
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+
+                        SessionManager.Logout();  // Kullanıcıyı oturumdan çıkart
+                        Properties.Settings.Default.SavedUserID = -1; // Kullanıcı ID sil
+                        Properties.Settings.Default.Save();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hata: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
         {
-            mainForm.LoadUserControl(new LoginPanel(mainForm));
+            SessionManager.Logout();  // Kullanıcıyı oturumdan çıkart
+            Properties.Settings.Default.SavedUserID = -1; // Kullanıcı ID sil
+            Properties.Settings.Default.Save();
+
+            mainForm.LoadUserControl(new LoginPanel(mainForm), "LoginPanel");
         }
     }
 }
+

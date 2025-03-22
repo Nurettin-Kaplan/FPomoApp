@@ -38,6 +38,7 @@
             groupBox1 = new GroupBox();
             TxtUsername = new TextBox();
             label1 = new Label();
+            label2 = new Label();
             groupBox4.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -48,7 +49,7 @@
             LblStatus.AutoSize = true;
             LblStatus.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             LblStatus.ForeColor = Color.Red;
-            LblStatus.Location = new Point(176, 488);
+            LblStatus.Location = new Point(168, 574);
             LblStatus.Name = "LblStatus";
             LblStatus.Size = new Size(0, 28);
             LblStatus.TabIndex = 21;
@@ -65,7 +66,7 @@
             BtnBack.ForeColor = Color.Transparent;
             BtnBack.Image = Properties.Resources.back;
             BtnBack.ImageAlign = ContentAlignment.MiddleRight;
-            BtnBack.Location = new Point(166, 422);
+            BtnBack.Location = new Point(158, 508);
             BtnBack.Name = "BtnBack";
             BtnBack.RightToLeft = RightToLeft.Yes;
             BtnBack.Size = new Size(114, 52);
@@ -86,7 +87,7 @@
             BtnVerify.ForeColor = Color.Transparent;
             BtnVerify.Image = Properties.Resources.accountBox;
             BtnVerify.ImageAlign = ContentAlignment.MiddleRight;
-            BtnVerify.Location = new Point(329, 422);
+            BtnVerify.Location = new Point(321, 508);
             BtnVerify.Name = "BtnVerify";
             BtnVerify.RightToLeft = RightToLeft.Yes;
             BtnVerify.Size = new Size(114, 52);
@@ -101,7 +102,7 @@
             groupBox4.Controls.Add(MTxtPhone);
             groupBox4.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox4.ForeColor = Color.DarkGray;
-            groupBox4.Location = new Point(150, 312);
+            groupBox4.Location = new Point(142, 398);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(308, 77);
             groupBox4.TabIndex = 18;
@@ -125,7 +126,7 @@
             groupBox3.Controls.Add(TxtEmail);
             groupBox3.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox3.ForeColor = Color.DarkGray;
-            groupBox3.Location = new Point(150, 217);
+            groupBox3.Location = new Point(142, 303);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(308, 77);
             groupBox3.TabIndex = 17;
@@ -148,7 +149,7 @@
             groupBox1.Controls.Add(TxtUsername);
             groupBox1.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.ForeColor = Color.DarkGray;
-            groupBox1.Location = new Point(150, 122);
+            groupBox1.Location = new Point(142, 208);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(308, 77);
             groupBox1.TabIndex = 14;
@@ -171,16 +172,28 @@
             label1.AutoSize = true;
             label1.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = Color.Red;
-            label1.Location = new Point(182, 488);
+            label1.Location = new Point(174, 574);
             label1.Name = "label1";
             label1.Size = new Size(0, 28);
             label1.TabIndex = 22;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(168, 128);
+            label2.Name = "label2";
+            label2.Size = new Size(264, 41);
+            label2.TabIndex = 23;
+            label2.Text = "Hesap Doğrulama";
             // 
             // RefPasswordPanel
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
+            Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(LblStatus);
             Controls.Add(BtnBack);
@@ -191,7 +204,7 @@
             Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4);
             Name = "RefPasswordPanel";
-            Size = new Size(608, 647);
+            Size = new Size(600, 716);
             Load += RefPasswordPanel_Load;
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
@@ -215,5 +228,6 @@
         private GroupBox groupBox1;
         private TextBox TxtUsername;
         private Label label1;
+        private Label label2;
     }
 }

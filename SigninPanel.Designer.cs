@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            label1 = new Label();
+            LblStatus = new Label();
             BtnBack = new Button();
             BtnSignIn = new Button();
             groupBox5 = new GroupBox();
@@ -42,7 +44,6 @@
             TxtEmail = new TextBox();
             groupBox1 = new GroupBox();
             TxtUsername = new TextBox();
-            LblStatus = new Label();
             groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PBoxViewPass2).BeginInit();
             groupBox2.SuspendLayout();
@@ -51,6 +52,27 @@
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Yu Gothic UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(224, 25);
+            label1.Name = "label1";
+            label1.Size = new Size(152, 41);
+            label1.TabIndex = 23;
+            label1.Text = "Yeni Kayıt";
+            // 
+            // LblStatus
+            // 
+            LblStatus.AutoSize = true;
+            LblStatus.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            LblStatus.ForeColor = Color.Red;
+            LblStatus.Location = new Point(171, 663);
+            LblStatus.Name = "LblStatus";
+            LblStatus.Size = new Size(0, 28);
+            LblStatus.TabIndex = 22;
             // 
             // BtnBack
             // 
@@ -64,11 +86,11 @@
             BtnBack.ForeColor = Color.Transparent;
             BtnBack.Image = Properties.Resources.back;
             BtnBack.ImageAlign = ContentAlignment.MiddleRight;
-            BtnBack.Location = new Point(166, 543);
+            BtnBack.Location = new Point(162, 592);
             BtnBack.Name = "BtnBack";
             BtnBack.RightToLeft = RightToLeft.Yes;
             BtnBack.Size = new Size(114, 52);
-            BtnBack.TabIndex = 12;
+            BtnBack.TabIndex = 21;
             BtnBack.Text = "Geri";
             BtnBack.UseVisualStyleBackColor = false;
             BtnBack.Click += BtnBack_Click;
@@ -85,11 +107,11 @@
             BtnSignIn.ForeColor = Color.Transparent;
             BtnSignIn.Image = Properties.Resources.user_add_fill;
             BtnSignIn.ImageAlign = ContentAlignment.MiddleRight;
-            BtnSignIn.Location = new Point(329, 543);
+            BtnSignIn.Location = new Point(325, 592);
             BtnSignIn.Name = "BtnSignIn";
             BtnSignIn.RightToLeft = RightToLeft.Yes;
             BtnSignIn.Size = new Size(114, 52);
-            BtnSignIn.TabIndex = 11;
+            BtnSignIn.TabIndex = 20;
             BtnSignIn.Text = "Kayıt Ol";
             BtnSignIn.TextAlign = ContentAlignment.MiddleLeft;
             BtnSignIn.UseVisualStyleBackColor = false;
@@ -101,10 +123,10 @@
             groupBox5.Controls.Add(TxtPassword2);
             groupBox5.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox5.ForeColor = Color.DarkGray;
-            groupBox5.Location = new Point(150, 241);
+            groupBox5.Location = new Point(146, 290);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(308, 77);
-            groupBox5.TabIndex = 8;
+            groupBox5.TabIndex = 17;
             groupBox5.TabStop = false;
             groupBox5.Text = "    Şifre (Tekrar)    ";
             // 
@@ -118,7 +140,6 @@
             PBoxViewPass2.SizeMode = PictureBoxSizeMode.Zoom;
             PBoxViewPass2.TabIndex = 18;
             PBoxViewPass2.TabStop = false;
-            PBoxViewPass2.Click += PBoxViewPass2_Click;
             // 
             // TxtPassword2
             // 
@@ -138,10 +159,10 @@
             groupBox2.Controls.Add(TxtPassword);
             groupBox2.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.ForeColor = Color.DarkGray;
-            groupBox2.Location = new Point(150, 145);
+            groupBox2.Location = new Point(146, 194);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(308, 77);
-            groupBox2.TabIndex = 7;
+            groupBox2.TabIndex = 16;
             groupBox2.TabStop = false;
             groupBox2.Text = "    Şifre    ";
             // 
@@ -155,7 +176,6 @@
             PBoxViewPass.SizeMode = PictureBoxSizeMode.Zoom;
             PBoxViewPass.TabIndex = 17;
             PBoxViewPass.TabStop = false;
-            PBoxViewPass.Click += PBoxViewPass_Click;
             // 
             // TxtPassword
             // 
@@ -174,10 +194,10 @@
             groupBox4.Controls.Add(MTxtPhone);
             groupBox4.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox4.ForeColor = Color.DarkGray;
-            groupBox4.Location = new Point(150, 432);
+            groupBox4.Location = new Point(146, 481);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(308, 77);
-            groupBox4.TabIndex = 10;
+            groupBox4.TabIndex = 19;
             groupBox4.TabStop = false;
             groupBox4.Text = "    Telefon    ";
             // 
@@ -198,10 +218,10 @@
             groupBox3.Controls.Add(TxtEmail);
             groupBox3.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox3.ForeColor = Color.DarkGray;
-            groupBox3.Location = new Point(150, 337);
+            groupBox3.Location = new Point(146, 386);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(308, 77);
-            groupBox3.TabIndex = 9;
+            groupBox3.TabIndex = 18;
             groupBox3.TabStop = false;
             groupBox3.Text = "    E-Mail    ";
             // 
@@ -221,10 +241,10 @@
             groupBox1.Controls.Add(TxtUsername);
             groupBox1.Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox1.ForeColor = Color.DarkGray;
-            groupBox1.Location = new Point(150, 52);
+            groupBox1.Location = new Point(146, 101);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(308, 77);
-            groupBox1.TabIndex = 6;
+            groupBox1.TabIndex = 15;
             groupBox1.TabStop = false;
             groupBox1.Text = "    Kullanıcı Adı    ";
             // 
@@ -239,21 +259,12 @@
             TxtUsername.Size = new Size(277, 27);
             TxtUsername.TabIndex = 6;
             // 
-            // LblStatus
-            // 
-            LblStatus.AutoSize = true;
-            LblStatus.Font = new Font("Yu Gothic UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            LblStatus.ForeColor = Color.Red;
-            LblStatus.Location = new Point(176, 609);
-            LblStatus.Name = "LblStatus";
-            LblStatus.Size = new Size(0, 28);
-            LblStatus.TabIndex = 13;
-            // 
             // SigninPanel
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
+            Controls.Add(label1);
             Controls.Add(LblStatus);
             Controls.Add(BtnBack);
             Controls.Add(BtnSignIn);
@@ -262,8 +273,10 @@
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
+            Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            Margin = new Padding(4);
             Name = "SigninPanel";
-            Size = new Size(608, 647);
+            Size = new Size(600, 716);
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PBoxViewPass2).EndInit();
@@ -282,20 +295,21 @@
 
         #endregion
 
+        private Label label1;
+        private Label LblStatus;
         private Button BtnBack;
         private Button BtnSignIn;
         private GroupBox groupBox5;
+        private PictureBox PBoxViewPass2;
         private TextBox TxtPassword2;
         private GroupBox groupBox2;
+        private PictureBox PBoxViewPass;
         private TextBox TxtPassword;
         private GroupBox groupBox4;
+        private MaskedTextBox MTxtPhone;
         private GroupBox groupBox3;
         private TextBox TxtEmail;
         private GroupBox groupBox1;
         private TextBox TxtUsername;
-        private PictureBox PBoxViewPass2;
-        private PictureBox PBoxViewPass;
-        private MaskedTextBox MTxtPhone;
-        private Label LblStatus;
     }
 }

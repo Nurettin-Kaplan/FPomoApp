@@ -20,6 +20,19 @@ namespace FPomoApp
             InitializeComponent();
             mainForm = form;
         }
+        public string StatusText
+        {
+            get { return LblStatus.Text; }
+            set { LblStatus.Text = value; }
+        }
+        public void ChangeLabelGreen()
+        {
+            LblStatus.ForeColor = Color.Green;
+        }
+        public void ChangeLabelRed()
+        {
+            LblStatus.ForeColor = Color.Red;
+        }
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             User user = ValidateUser(TxtUsername.Text, TxtPassword.Text); // Kullanıcıyı doğrula
@@ -79,7 +92,7 @@ namespace FPomoApp
 
         private void BtnSignIn_Click(object sender, EventArgs e)
         {
-            mainForm.LoadUserControl(new SigninPanel(mainForm));
+            mainForm.LoadUserControl(new SigninPanel(mainForm), "SigninPanel");
         }
 
         private void PBoxViewPass_Click(object sender, EventArgs e)
@@ -99,7 +112,7 @@ namespace FPomoApp
 
         private void LinkLblForgotPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            mainForm.LoadUserControl(new RefPasswordPanel(mainForm));
+            mainForm.LoadUserControl(new RefPasswordPanel(mainForm), "RefPasswordPanel");
         }
 
         private void LoginPanel_Load(object sender, EventArgs e)
