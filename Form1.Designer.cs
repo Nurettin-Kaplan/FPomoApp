@@ -264,7 +264,7 @@
             LblWelcome.AutoSize = true;
             LblWelcome.Font = new Font("Yu Gothic", 72F, FontStyle.Bold, GraphicsUnit.Point);
             LblWelcome.ForeColor = Color.FromArgb(64, 64, 64);
-            LblWelcome.Location = new Point(636, 260);
+            LblWelcome.Location = new Point(1383, 260);
             LblWelcome.Name = "LblWelcome";
             LblWelcome.Size = new Size(1690, 155);
             LblWelcome.TabIndex = 0;
