@@ -71,14 +71,9 @@ namespace FPomoApp
             FLEasyTasks.FlowDirection = FlowDirection.TopDown;
             FLEasyTasks.Location = new Point(45, 124);
             FLEasyTasks.Name = "FLEasyTasks";
-            FLEasyTasks.Width = 385;
-            FLEasyTasks.Height = 537;
+            FLEasyTasks.Size = new Size(385, 537);
             FLEasyTasks.TabIndex = 10;
-            //FLEasyTasks.AutoScroll = true;      // Kaydırma açık
-            FLEasyTasks.HorizontalScroll.Maximum = 0;
-            FLEasyTasks.HorizontalScroll.Visible = false;
-            FLEasyTasks.HorizontalScroll.Enabled = false;
-            FLEasyTasks.WrapContents = false;     // İçerikleri alta kaydır
+            FLEasyTasks.WrapContents = false;
             // 
             // panel1
             // 
@@ -130,14 +125,9 @@ namespace FPomoApp
             FLHardTasks.FlowDirection = FlowDirection.TopDown;
             FLHardTasks.Location = new Point(989, 124);
             FLHardTasks.Name = "FLHardTasks";
-            FLHardTasks.Width = 385;
-            FLHardTasks.Height = 537;
+            FLHardTasks.Size = new Size(385, 537);
             FLHardTasks.TabIndex = 11;
-            //FLHardTasks.AutoScroll = true;      // Kaydırma açık
-            FLHardTasks.HorizontalScroll.Maximum = 0;
-            FLHardTasks.HorizontalScroll.Visible = false;
-            FLHardTasks.HorizontalScroll.Enabled = false;
-            FLHardTasks.WrapContents = false;     // İçerikleri alta kaydır
+            FLHardTasks.WrapContents = false;
             // 
             // panel3
             // 
@@ -188,14 +178,9 @@ namespace FPomoApp
             FLNormalTasks.FlowDirection = FlowDirection.TopDown;
             FLNormalTasks.Location = new Point(526, 124);
             FLNormalTasks.Name = "FLNormalTasks";
-            FLNormalTasks.Width = 385;
-            FLNormalTasks.Height = 537;
+            FLNormalTasks.Size = new Size(385, 537);
             FLNormalTasks.TabIndex = 11;
-            //FLNormalTasks.AutoScroll = true;      // Kaydırma açık
-            FLNormalTasks.HorizontalScroll.Maximum = 0;
-            FLNormalTasks.HorizontalScroll.Visible = false;
-            FLNormalTasks.HorizontalScroll.Enabled = false;
-            FLNormalTasks.WrapContents = false;     // İçerikleri alta kaydır
+            FLNormalTasks.WrapContents = false;
             // 
             // panel2
             // 
@@ -256,6 +241,7 @@ namespace FPomoApp
             Margin = new Padding(4);
             Name = "Tasks";
             Size = new Size(1419, 704);
+            Load += Tasks_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

@@ -60,7 +60,7 @@ namespace FPomoApp
                 {
                     e.SuppressKeyPress = true;
 
-                    string query = "insert into TblTasks (Level, Description, IsCompleted, TaskUID) values (@level, @description, @isCompleted, @taskuid) ";
+                    string query = "insert into TblTasks (TaskLevel, Description, IsCompleted, UserID) values (@level, @description, @isCompleted, @taskuid) ";
 
                     using (SqlConnection con = new SqlConnection(connectionString))
                     using (SqlCommand cmd = new SqlCommand(query, con))
@@ -142,7 +142,7 @@ namespace FPomoApp
                     await Task.Delay(2000); // 2 saniye bekle
                     if (PBoxCheck.Tag == "checkbox")
                     {
-                        string query = "update TblTasks set IsCompleted = 1 where TaskUID = @id";
+                        string query = "update TblTasks set IsCompleted = 1 where UserID = @id";
 
                         using (SqlConnection con = new SqlConnection(connectionString))
                         using (SqlCommand cmd = new SqlCommand(query, con))
@@ -192,6 +192,48 @@ namespace FPomoApp
         {
             panel.AutoScroll = true;
             panel.VerticalScroll.Value = panel.VerticalScroll.Maximum; // En alta kaydır
+        }
+
+        private void Tasks_Load(object sender, EventArgs e)
+        {
+            PullData();
+        }
+
+        private void PullData()
+        {
+            string query = "select * from TblTasks where UserID = @id";
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                cmd.Parameters.AddWithValue("@id", Properties.Settings.Default.SavedUserID);
+
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();  // Verileri çekiyoruz
+                                                             // Verileri okuma
+                while (reader.Read())
+                {
+                    int taskLevel = Convert.ToInt32(reader["TaskLevel"]);
+                    string taskDescription = reader["Description"].ToString();
+                    int taskIsCompleted = Convert.ToInt32(reader["IsCompleted"]);
+
+                    if(taskIsCompleted == 0)
+                    {
+                        switch (taskLevel)
+                        {
+                            case 1:
+                                AddTask(FLEasyTasks, taskDescription, taskLevel);
+                                break;
+                            case 2:
+                                AddTask(FLNormalTasks, taskDescription, taskLevel);
+                                break;
+                            case 3:
+                                AddTask(FLHardTasks, taskDescription, taskLevel);
+                                break;
+                        }
+                    }
+                }
+            }
         }
     }
 }
