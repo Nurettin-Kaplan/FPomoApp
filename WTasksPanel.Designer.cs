@@ -46,12 +46,16 @@ namespace FPomoApp
             label2 = new Label();
             pictureBox2 = new PictureBox();
             BtnAddNormal = new Button();
+            pictureBox4 = new PictureBox();
+            pictureBox5 = new PictureBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // LblTask
@@ -225,11 +229,33 @@ namespace FPomoApp
             BtnAddNormal.TabIndex = 1;
             BtnAddNormal.UseVisualStyleBackColor = true;
             // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.split;
+            pictureBox4.Location = new Point(428, 124);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(99, 537);
+            pictureBox4.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox4.TabIndex = 12;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = Properties.Resources.split;
+            pictureBox5.Location = new Point(899, 124);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(91, 537);
+            pictureBox5.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBox5.TabIndex = 13;
+            pictureBox5.TabStop = false;
+            // 
             // Tasks
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
+            Controls.Add(pictureBox5);
+            Controls.Add(pictureBox4);
             Controls.Add(panel2);
             Controls.Add(FLNormalTasks);
             Controls.Add(panel1);
@@ -251,6 +277,8 @@ namespace FPomoApp
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -273,5 +301,7 @@ namespace FPomoApp
         private Label label1;
         private Label label3;
         private Label label2;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox5;
     }
 }

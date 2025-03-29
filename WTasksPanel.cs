@@ -185,7 +185,7 @@ namespace FPomoApp
 
         private void BtnAddEasy_Click(object sender, EventArgs e)
         {
-
+            //
         }
 
         private void ScrollToBottom(FlowLayoutPanel panel)
@@ -217,7 +217,7 @@ namespace FPomoApp
                     string taskDescription = reader["Description"].ToString();
                     int taskIsCompleted = Convert.ToInt32(reader["IsCompleted"]);
 
-                    if(taskIsCompleted == 0)
+                    if (taskIsCompleted == 0)
                     {
                         switch (taskLevel)
                         {
