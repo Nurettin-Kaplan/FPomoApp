@@ -3,6 +3,7 @@ Red: #961a25
 Dark Blue: #232530
 
 Gray: 31; 31; 31
+25; 25; 25
 
 Dark Gray: Black
 

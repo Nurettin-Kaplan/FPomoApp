@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wd9zJE9u2ICPCIk9QBdsKWAkWDJEnIR2XE5T0DYjwY370rg9d0ZnVUEi0obC1d/wxDr3gBU6JzRBA7D9sbQbTg==",
+  "dgSpecHash": "Hv99KkNjRQNeRQLOBP2m5myR9o6OtDTh/YWIDZf4QUhYo4IZy3rf7KG4HVhoThNGNgZFE6/ioc0aIIRzBvamOg==",
   "success": true,
   "projectFilePath": "C:\\FPomoApp\\FPomoApp.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,8 @@
     "C:\\Users\\nuret\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\nuret\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\nuret\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Users\\nuret\\.nuget\\packages\\system.data.sqlclient\\4.9.0\\system.data.sqlclient.4.9.0.nupkg.sha512"
+    "C:\\Users\\nuret\\.nuget\\packages\\system.data.sqlclient\\4.9.0\\system.data.sqlclient.4.9.0.nupkg.sha512",
+    "C:\\Users\\nuret\\.nuget\\packages\\winforms.datavisualization\\1.10.0\\winforms.datavisualization.1.10.0.nupkg.sha512"
   ],
   "logs": []
 }

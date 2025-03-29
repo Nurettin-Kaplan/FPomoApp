@@ -37,3 +37,5 @@ C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.InfoPanel.resources
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.ShopPanel.resources
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.StatisticsPanel.resources
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.TimerPanel.resources
+C:\FPomoApp\bin\Debug\net7.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\FPomoApp\bin\Debug\net7.0-windows\WinForms.DataVisualization.dll

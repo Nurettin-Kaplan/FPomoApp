@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             LblHeader = new Label();
             FLCTasksPanel = new FlowLayoutPanel();
+            chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
             SuspendLayout();
             // 
             // LblHeader
@@ -49,15 +53,32 @@
             FLCTasksPanel.FlowDirection = FlowDirection.TopDown;
             FLCTasksPanel.Location = new Point(47, 94);
             FLCTasksPanel.Name = "FLCTasksPanel";
-            FLCTasksPanel.Size = new Size(1325, 562);
+            FLCTasksPanel.Size = new Size(935, 562);
             FLCTasksPanel.TabIndex = 9;
             FLCTasksPanel.WrapContents = false;
+            // 
+            // chart1
+            // 
+            chart1.BackColor = Color.FromArgb(31, 31, 31);
+            chart1.BorderlineColor = Color.FromArgb(31, 31, 31);
+            chartArea1.BackColor = Color.FromArgb(31, 31, 31);
+            chartArea1.Name = "MainArena";
+            chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chart1.Legends.Add(legend1);
+            chart1.Location = new Point(1003, 94);
+            chart1.Name = "chart1";
+            chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            chart1.Size = new Size(391, 562);
+            chart1.TabIndex = 10;
+            chart1.Text = "chart1";
             // 
             // CTasksPanel
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(31, 31, 31);
+            Controls.Add(chart1);
             Controls.Add(FLCTasksPanel);
             Controls.Add(LblHeader);
             Font = new Font("Yu Gothic UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -65,6 +86,7 @@
             Name = "CTasksPanel";
             Size = new Size(1419, 704);
             Load += CTasksPanel_Load;
+            ((System.ComponentModel.ISupportInitialize)chart1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -73,5 +95,6 @@
 
         private Label LblHeader;
         private FlowLayoutPanel FLCTasksPanel;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     }
 }

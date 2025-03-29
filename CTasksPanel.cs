@@ -1,13 +1,14 @@
-﻿using System;
+﻿using System.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace FPomoApp
 {
@@ -21,7 +22,82 @@ namespace FPomoApp
         private void CTasksPanel_Load(object sender, EventArgs e)
         {
             PullData();
+            DrawGraphic();
         }
+
+        private void DrawGraphic()
+        {
+            // 1. Chart bileşenini temizle
+            chart1.Series.Clear();
+            chart1.ChartAreas.Clear();
+            chart1.Legends.Clear();
+
+            // 2. Yeni bir ChartArea ekleyelim
+            ChartArea chartArea = new ChartArea("PieArea");
+            chart1.ChartAreas.Add(chartArea);
+
+            // 3. Yeni bir Seri (Series) ekleyelim
+            Series series = new Series
+            {
+                Name = "Görevler",
+                ChartType = SeriesChartType.Pie, // Pasta Grafiği
+                IsValueShownAsLabel = true // Değerleri göster
+            };
+
+            // 4. FlowLayoutPanel içindeki görevlerin renklerini ve sayılarını belirleyelim
+            int acilGorevSayisi = 0;
+            int ortaGorevSayisi = 0;
+            int rahatGorevSayisi = 0;
+
+            foreach (Control taskPanel in FLCTasksPanel.Controls)
+            {
+                if (taskPanel is Panel panel)
+                {
+                    foreach (Control innerCtrl in panel.Controls)
+                    {
+                        if (innerCtrl is PictureBox pbox && pbox.Image != null)
+                        {
+                            if (pbox.Image == Properties.Resources.redCircle)
+                                acilGorevSayisi++;
+                            else if (pbox.Image == Properties.Resources.yellowCircle)
+                                ortaGorevSayisi++;
+                            else if (pbox.Image == Properties.Resources.greenCircle)
+                                rahatGorevSayisi++;
+                        }
+                    }
+                }
+            }
+            MessageBox.Show($"Acil: {acilGorevSayisi}, Orta: {ortaGorevSayisi}, Rahat: {rahatGorevSayisi}");
+
+            // 5. Pasta grafiğine veri ekleme
+            if (acilGorevSayisi > 0)
+                series.Points.AddXY("Acil", acilGorevSayisi);
+            if (ortaGorevSayisi > 0)
+                series.Points.AddXY("Önemli", ortaGorevSayisi);
+            if (rahatGorevSayisi > 0)
+                series.Points.AddXY("Sıradan", rahatGorevSayisi);
+
+            // 6. Pasta grafiğine renk atama (PictureBox renklerine uygun olacak şekilde)
+            if (series.Points.Count > 0)
+            {
+                int index = 0;
+                if (acilGorevSayisi > 0)
+                    series.Points[index++].Color = Color.Red;
+                if (ortaGorevSayisi > 0)
+                    series.Points[index++].Color = Color.Yellow;
+                if (rahatGorevSayisi > 0)
+                    series.Points[index++].Color = Color.Green;
+            }
+
+            // 7. Seriyi Chart'a ekleyelim
+            chart1.Series.Add(series);
+
+            // 8. Grafik görünüm ayarları
+            chart1.Titles.Add("Görev Dağılımı");
+            chart1.Legends.Add(new Legend("Legend"));
+            chart1.ChartAreas[0].Area3DStyle.Enable3D = true; // 3D efekti aç
+        }
+
         private void AddTask(FlowLayoutPanel panel, string taskName, int taskLevel)
         {
             Panel taskPanel = new Panel
