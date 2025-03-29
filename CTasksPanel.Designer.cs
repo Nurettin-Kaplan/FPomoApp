@@ -37,7 +37,7 @@
             LblHeader.AutoSize = true;
             LblHeader.Font = new Font("Yu Gothic", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             LblHeader.ForeColor = Color.White;
-            LblHeader.Location = new Point(47, 45);
+            LblHeader.Location = new Point(36, 14);
             LblHeader.Name = "LblHeader";
             LblHeader.Size = new Size(494, 56);
             LblHeader.TabIndex = 7;
@@ -45,10 +45,13 @@
             // 
             // FLCTasksPanel
             // 
-            FLCTasksPanel.Location = new Point(47, 113);
+            FLCTasksPanel.AutoScroll = true;
+            FLCTasksPanel.FlowDirection = FlowDirection.TopDown;
+            FLCTasksPanel.Location = new Point(47, 94);
             FLCTasksPanel.Name = "FLCTasksPanel";
-            FLCTasksPanel.Size = new Size(1325, 543);
+            FLCTasksPanel.Size = new Size(1325, 562);
             FLCTasksPanel.TabIndex = 9;
+            FLCTasksPanel.WrapContents = false;
             // 
             // CTasksPanel
             // 
@@ -61,6 +64,7 @@
             Margin = new Padding(4);
             Name = "CTasksPanel";
             Size = new Size(1419, 704);
+            Load += CTasksPanel_Load;
             ResumeLayout(false);
             PerformLayout();
         }
