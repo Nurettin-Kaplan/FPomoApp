@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace FPomoApp
 {
     public partial class Tasks : UserControl
     {
+        private string connectionString = "Server=localhost; Database=FPomoDB; Integrated Security=True;";
+
         public Tasks()
         {
             InitializeComponent();
@@ -54,6 +59,20 @@ namespace FPomoApp
                 if (e.KeyCode == Keys.Enter && !string.IsNullOrWhiteSpace(TxtWrite.Text))
                 {
                     e.SuppressKeyPress = true;
+
+                    string query = "insert into TblTasks (Level, Description, IsCompleted, TaskUID) values (@level, @description, @isCompleted, @taskuid) ";
+
+                    using (SqlConnection con = new SqlConnection(connectionString))
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@level", taskLevel);
+                        cmd.Parameters.AddWithValue("@description", TxtWrite.Text);
+                        cmd.Parameters.AddWithValue("@isCompleted", 0);
+                        cmd.Parameters.AddWithValue("@taskuid", Properties.Settings.Default.SavedUserID);
+
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
                     AddTask(panel, TxtWrite.Text, taskLevel);
                     panel.Controls.Remove(writePanel);
                 }
@@ -61,6 +80,7 @@ namespace FPomoApp
 
             writePanel.Controls.Add(TxtWrite);
             panel.Controls.Add(writePanel);
+            panel.Controls.SetChildIndex(writePanel, 0);
             TxtWrite.Focus();
         }
 
@@ -96,17 +116,20 @@ namespace FPomoApp
             Label LblTask = new Label
             {
                 Text = taskName,
-                AutoSize = true,
-                MaximumSize = new Size(panel.Width - 50, 0),
+                AutoSize = true, // AutoSize false yapılıyor
+                Width = panel.Width - 50, // Sabit genişlik
+                MaximumSize = new Size(panel.Width - 50, 0), // Panel genişliğine uyumlu
                 Padding = new Padding(5),
                 Font = new Font("Yu Gothic", 12F, FontStyle.Bold),
                 ForeColor = Color.White,
+                TextAlign = ContentAlignment.TopLeft,
+                //Height = 30 // Başlangıç yüksekliği
             };
 
-            // Yüksekliği dinamik olarak ayarla
-            LblTask.SizeChanged += (s, e) =>
+            // Yüksekliği metnin uzunluğuna göre otomatik olarak ayarla
+            LblTask.TextChanged += (s, e) =>
             {
-                taskPanel.Height = LblTask.Height + 20; // Yüksekliği metne göre ayarla
+                LblTask.Height = (int)(LblTask.PreferredHeight * 1.1); // Yazının boyutuna göre dinamik yükseklik
             };
 
             PBoxCheck.Click += async (s, e) =>
@@ -115,11 +138,20 @@ namespace FPomoApp
                 {
                     PBoxCheck.Image = Properties.Resources.checkbox;
                     PBoxCheck.Tag = "checkbox";
-                    LblTask.Font = new Font(LblTask.Font, FontStyle.Strikeout);
+                    LblTask.Font = new Font(LblTask.Font, FontStyle.Bold | FontStyle.Strikeout);
                     await Task.Delay(2000); // 2 saniye bekle
                     if (PBoxCheck.Tag == "checkbox")
                     {
-                        // veritabanına işaretleme sonrasında writePanel'in silinme işlemi yapılacak
+                        string query = "update TblTasks set IsCompleted = 1 where TaskUID = @id";
+
+                        using (SqlConnection con = new SqlConnection(connectionString))
+                        using (SqlCommand cmd = new SqlCommand(query, con))
+                        {
+                            cmd.Parameters.AddWithValue("@id", Properties.Settings.Default.SavedUserID);
+
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                        }
                         panel.Controls.Remove(taskPanel);
                     }
                 }
@@ -131,18 +163,23 @@ namespace FPomoApp
                 }
             };
 
+            taskPanel.Height = LblTask.Height + 10; // Yüksekliği metne göre ayarla
+
             FlowLayoutPanel contentPanel = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
                 AutoSize = true,
+                Padding = new Padding(5),
+                Margin = new Padding(3),
                 FlowDirection = FlowDirection.LeftToRight,
-                WrapContents = true
+                WrapContents = false
             };
 
             contentPanel.Controls.Add(PBoxCheck);
             contentPanel.Controls.Add(LblTask);
             taskPanel.Controls.Add(contentPanel);
             panel.Controls.Add(taskPanel);
+            panel.Controls.SetChildIndex(taskPanel, 0);
             ScrollToBottom(panel);
         }
 
