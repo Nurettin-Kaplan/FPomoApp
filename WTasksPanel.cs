@@ -68,7 +68,7 @@ namespace FPomoApp
                         cmd.Parameters.AddWithValue("@level", taskLevel);
                         cmd.Parameters.AddWithValue("@description", TxtWrite.Text);
                         cmd.Parameters.AddWithValue("@isCompleted", 0);
-                        cmd.Parameters.AddWithValue("@taskuid", Properties.Settings.Default.SavedUserID);
+                        cmd.Parameters.AddWithValue("@taskuid", SessionManager.CurrentUser.UserID);
 
                         con.Open();
                         cmd.ExecuteNonQuery();
@@ -147,7 +147,7 @@ namespace FPomoApp
                         using (SqlConnection con = new SqlConnection(connectionString))
                         using (SqlCommand cmd = new SqlCommand(query, con))
                         {
-                            cmd.Parameters.AddWithValue("@id", Properties.Settings.Default.SavedUserID);
+                            cmd.Parameters.AddWithValue("@id", SessionManager.CurrentUser.UserID);
 
                             con.Open();
                             cmd.ExecuteNonQuery();
@@ -206,7 +206,7 @@ namespace FPomoApp
             using (SqlConnection con = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(query, con))
             {
-                cmd.Parameters.AddWithValue("@id", Properties.Settings.Default.SavedUserID);
+                cmd.Parameters.AddWithValue("@id", SessionManager.CurrentUser.UserID);
 
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();  // Verileri çekiyoruz
