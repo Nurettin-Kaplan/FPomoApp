@@ -39,3 +39,6 @@ C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.StatisticsPanel.resources
 C:\FPomoApp\obj\Debug\net7.0-windows\FPomoApp.TimerPanel.resources
 C:\FPomoApp\bin\Debug\net7.0-windows\WinForms.DataVisualization.Utilities.dll
 C:\FPomoApp\bin\Debug\net7.0-windows\WinForms.DataVisualization.dll
+C:\FPomoApp\bin\Debug\net7.0-windows\Guna.UI2.dll
+C:\FPomoApp\bin\Debug\net7.0-windows\System.Management.dll
+C:\FPomoApp\bin\Debug\net7.0-windows\runtimes\win\lib\net7.0\System.Management.dll

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 
 namespace FPomoApp
 {
@@ -15,6 +16,23 @@ namespace FPomoApp
         public TimerPanel()
         {
             InitializeComponent();
+        }
+
+        private void BtnStart_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (PBar.Value < PBar.Maximum)
+            {
+                PBar.Value += 1;
+            }
+            else
+            {
+                timer1.Stop();
+            }
         }
     }
 }
